@@ -3,6 +3,43 @@
     -fx-background-color: #f9fafb; /* gray-50 */
 }
 
+/* Title Bar Styling */
+.title-bar {
+    -fx-background-color: white;
+    -fx-padding: 8px 12px;
+    -fx-border-color: transparent transparent #e5e7eb transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.window-controls {
+    -fx-spacing: 8px;
+}
+
+.window-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 4px 8px;
+    -fx-cursor: hand;
+    -fx-background-radius: 4px;
+}
+
+.window-btn .ikonli-font-icon {
+    -fx-icon-size: 14px;
+    -fx-icon-color: #6b7280; /* gray-500 */
+}
+
+.window-btn:hover {
+    -fx-background-color: #e5e7eb; /* gray-200 */
+}
+
+.window-btn-close:hover {
+    -fx-background-color: #ef4444; /* red-500 */
+}
+
+.window-btn-close:hover .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
 /* Sidebar Styling */
 .sidebar {
     -fx-background-color: white;

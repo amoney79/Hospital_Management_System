@@ -9,10 +9,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import javafx.stage.StageStyle;
+
 public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        stage.initStyle(StageStyle.UNDECORATED);
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/com/hospital/fxml/MainLayout.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1024, 768);
