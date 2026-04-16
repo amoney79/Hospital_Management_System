@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.controllers.MedicalRecordsController" 
+            fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 0;">
+    <VBox spacing="24" style="-fx-padding: 0 0 32 0;">
+        
+        <BorderPane>
+            <left>
+                <VBox spacing="4">
+                    <Label text="Medical Records" styleClass="page-title"/>
+                    <Label text="View patient medical history" styleClass="page-subtitle"/>
+                </VBox>
+            </left>
+        </BorderPane>
+
+        <HBox styleClass="search-bar-container" alignment="CENTER_LEFT" spacing="10">
+            <FontIcon iconLiteral="fth-search" styleClass="search-icon"/>
+            <TextField promptText="Search records by patient, doctor, or diagnosis..." styleClass="search-field" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <VBox fx:id="recordsContainer" spacing="16">
+            <!-- Records injected here -->
+        </VBox>
+        
+    </VBox>
+</ScrollPane>
