@@ -66,6 +66,10 @@
                     <FontIcon iconLiteral="fth-credit-card" styleClass="nav-icon"/>
                     <Label text="Transactions" styleClass="nav-text"/>
                 </HBox>
+                <HBox fx:id="navSettings" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fth-settings" styleClass="nav-icon"/>
+                    <Label text="Settings" styleClass="nav-text"/>
+                </HBox>
             </VBox>
         </VBox>
     </left>

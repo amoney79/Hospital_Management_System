@@ -38,6 +38,9 @@ public class MainController {
     private HBox navTransactions;
 
     @FXML
+    private HBox navSettings;
+
+    @FXML
     public void initialize() {
         loadView("Dashboard");
         setActiveNav(navDashboard);
@@ -60,7 +63,7 @@ public class MainController {
     }
 
     private void setActiveNav(HBox activeNav) {
-        HBox[] navs = {navDashboard, navPatients, navDoctors, navAppointments, navRecords, navTransactions};
+        HBox[] navs = {navDashboard, navPatients, navDoctors, navAppointments, navRecords, navTransactions, navSettings};
         for (HBox nav : navs) {
             if (nav != null) {
                 nav.getStyleClass().remove("nav-item-active");

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox spacing="24" styleClass="content-area" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.controllers.Settings">
+
+    <!-- Header -->
+    <VBox spacing="4">
+        <Label styleClass="page-title" text="Settings" />
+        <Label styleClass="page-subtitle" text="Manage application settings and preferences" />
+    </VBox>
+
+    <VBox styleClass="card">
+        <VBox styleClass="card-header">
+            <Label styleClass="card-title" text="Account Settings" />
+        </VBox>
+        <VBox spacing="16" styleClass="card-content">
+            <VBox spacing="8">
+                <Label text="Username" styleClass="nav-text" />
+                <TextField fx:id="usernameField" promptText="Enter your username" styleClass="search-field, search-bar-container" />
+            </VBox>
+            
+            <VBox spacing="8">
+                <Label text="Password" styleClass="nav-text" />
+                <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="search-field, search-bar-container" />
+            </VBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Button fx:id="saveButton" mnemonicParsing="false" styleClass="btn, btn-primary" text="Save Changes" />
+            </HBox>
+        </VBox>
+    </VBox>
+
+</VBox>
