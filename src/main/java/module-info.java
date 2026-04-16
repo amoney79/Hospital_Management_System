@@ -1,6 +1,6 @@
 module com.hospital {
-    requires javafx.controls;
-    requires javafx.graphics;
+    requires transitive javafx.controls;
+    requires transitive javafx.graphics;
     requires javafx.fxml;
     requires javafx.web;
     requires org.kordamp.ikonli.javafx;
