@@ -1,3 +1,4 @@
+
 package com.hospital;
 
 import javafx.application.Application;

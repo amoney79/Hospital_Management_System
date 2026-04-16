@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.controllers.PatientsController" 
+            fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 0;"
+            fx:id="scrollPane">
+    <VBox spacing="24" style="-fx-padding: 0 0 32 0;">
+        
+        <!-- Header -->
+        <BorderPane>
+            <left>
+                <VBox spacing="4">
+                    <Label text="Patients" styleClass="page-title"/>
+                    <Label text="Manage patient records" styleClass="page-subtitle"/>
+                </VBox>
+            </left>
+            <right>
+                <Button fx:id="addPatientButton" text="Add Patient" styleClass="btn btn-primary" BorderPane.alignment="CENTER">
+                    <graphic>
+                        <FontIcon iconLiteral="fth-plus" styleClass="btn-icon"/>
+                    </graphic>
+                </Button>
+            </right>
+        </BorderPane>
+
+        <!-- Search Bar -->
+        <HBox styleClass="search-bar-container" alignment="CENTER_LEFT" spacing="10">
+            <FontIcon iconLiteral="fth-search" styleClass="search-icon"/>
+            <TextField fx:id="searchField" promptText="Search patients by name or email..." styleClass="search-field" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <!-- Patients Grid -->
+        <FlowPane fx:id="patientsGrid" hgap="24" vgap="24" prefWrapLength="800">
+            <!-- Patient cards will be injected here dynamically -->
+        </FlowPane>
+        
+    </VBox>
+</ScrollPane>

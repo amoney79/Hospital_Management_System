@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.controllers.DashboardController" 
+            fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 0;">
+    <VBox spacing="32" style="-fx-padding: 0 0 32 0;">
+        
+        <!-- Header -->
+        <VBox spacing="4">
+            <Label text="Dashboard" styleClass="page-title"/>
+            <Label text="Welcome to Healthcare Management System" styleClass="page-subtitle"/>
+        </VBox>
+
+        <!-- Stats Grid -->
+        <GridPane hgap="24" vgap="24">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25"/>
+                <ColumnConstraints percentWidth="25"/>
+                <ColumnConstraints percentWidth="25"/>
+                <ColumnConstraints percentWidth="25"/>
+            </columnConstraints>
+            
+            <!-- Stat 1: Total Patients -->
+            <VBox styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <HBox styleClass="card-content" alignment="CENTER" spacing="10">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Total Patients" styleClass="stat-title"/>
+                        <Label fx:id="totalPatientsLabel" text="0" styleClass="stat-value"/>
+                    </VBox>
+                    <StackPane styleClass="stat-box stat-box-blue">
+                        <FontIcon iconLiteral="fth-users" styleClass="stat-icon-blue"/>
+                    </StackPane>
+                </HBox>
+            </VBox>
+
+            <!-- Stat 2: Available Doctors -->
+            <VBox styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <HBox styleClass="card-content" alignment="CENTER" spacing="10">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Available Doctors" styleClass="stat-title"/>
+                        <Label fx:id="availableDoctorsLabel" text="0" styleClass="stat-value"/>
+                    </VBox>
+                    <StackPane styleClass="stat-box stat-box-green">
+                        <FontIcon iconLiteral="fth-monitor" styleClass="stat-icon-green"/>
+                    </StackPane>
+                </HBox>
+            </VBox>
+
+            <!-- Stat 3: Today's Appointments -->
+            <VBox styleClass="card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                <HBox styleClass="card-content" alignment="CENTER" spacing="10">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Today's Appointments" styleClass="stat-title"/>
+                        <Label fx:id="todayAppointmentsLabel" text="0" styleClass="stat-value"/>
+                    </VBox>
+                    <StackPane styleClass="stat-box stat-box-purple">
+                        <FontIcon iconLiteral="fth-calendar" styleClass="stat-icon-purple"/>
+                    </StackPane>
+                </HBox>
+            </VBox>
+
+            <!-- Stat 4: Total Revenue -->
+            <VBox styleClass="card" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                <HBox styleClass="card-content" alignment="CENTER" spacing="10">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Total Revenue" styleClass="stat-title"/>
+                        <Label fx:id="totalRevenueLabel" text="0" styleClass="stat-value"/>
+                    </VBox>
+                    <StackPane styleClass="stat-box stat-box-orange">
+                        <FontIcon iconLiteral="fth-dollar-sign" styleClass="stat-icon-orange"/>
+                    </StackPane>
+                </HBox>
+            </VBox>
+        </GridPane>
+
+        <!-- Recent Activity Grid -->
+        <GridPane hgap="24" vgap="24">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50"/>
+                <ColumnConstraints percentWidth="50"/>
+            </columnConstraints>
+            
+            <!-- Recent Appointments -->
+            <VBox styleClass="card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <VBox styleClass="card-header">
+                    <Label text="Recent Appointments" styleClass="card-title"/>
+                </VBox>
+                <VBox fx:id="recentAppointmentsContainer" styleClass="card-content" spacing="16">
+                    <!-- Populated dynamically -->
+                </VBox>
+            </VBox>
+
+            <!-- Recent Transactions -->
+            <VBox styleClass="card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <VBox styleClass="card-header">
+                    <Label text="Recent Transactions" styleClass="card-title"/>
+                </VBox>
+                <VBox fx:id="recentTransactionsContainer" styleClass="card-content" spacing="16">
+                    <!-- Populated dynamically -->
+                </VBox>
+            </VBox>
+        </GridPane>
+        
+    </VBox>
+</ScrollPane>

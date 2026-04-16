@@ -1,0 +1,10 @@
+com\hospital\controllers\PatientsController.class
+com\hospital\MainApp.class
+com\hospital\controllers\MainController.class
+com\hospital\controllers\TransactionsController.class
+com\hospital\controllers\MedicalRecordsController.class
+com\hospital\controllers\DoctorsController.class
+com\hospital\controllers\TransactionsController$Trans.class
+module-info.class
+com\hospital\controllers\AppointmentsController.class
+com\hospital\controllers\DashboardController.class

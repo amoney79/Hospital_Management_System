@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.controllers.MainController" stylesheets="@../css/styles.css" styleClass="main-bg">
+
+    <left>
+        <VBox styleClass="sidebar" prefWidth="250">
+            <!-- Header -->
+            <HBox styleClass="sidebar-header" alignment="CENTER_LEFT">
+                <Label text="HealthCare MS" styleClass="app-title"/>
+            </HBox>
+
+            <!-- Navigation Links -->
+            <VBox styleClass="nav-container" VBox.vgrow="ALWAYS">
+                <HBox fx:id="navDashboard" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fth-grid" styleClass="nav-icon"/>
+                    <Label text="Dashboard" styleClass="nav-text"/>
+                </HBox>
+                <HBox fx:id="navPatients" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fth-users" styleClass="nav-icon"/>
+                    <Label text="Patients" styleClass="nav-text"/>
+                </HBox>
+                <HBox fx:id="navDoctors" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fth-monitor" styleClass="nav-icon"/>  <!-- Using a placeholder, close to stethoscope -->
+                    <Label text="Doctors" styleClass="nav-text"/>
+                </HBox>
+                <HBox fx:id="navAppointments" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fth-calendar" styleClass="nav-icon"/>
+                    <Label text="Appointments" styleClass="nav-text"/>
+                </HBox>
+                <HBox fx:id="navRecords" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fth-file-text" styleClass="nav-icon"/>
+                    <Label text="Medical Records" styleClass="nav-text"/>
+                </HBox>
+                <HBox fx:id="navTransactions" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fth-credit-card" styleClass="nav-icon"/>
+                    <Label text="Transactions" styleClass="nav-text"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <!-- Content will be injected here dynamically -->
+        </StackPane>
+    </center>
+
+</BorderPane>
