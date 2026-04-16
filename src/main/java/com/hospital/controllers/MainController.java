@@ -54,6 +54,7 @@ public class MainController {
         else if (id.equals("navAppointments")) loadView("Appointments"); // Placeholder
         else if (id.equals("navRecords")) loadView("MedicalRecords"); // Placeholder
         else if (id.equals("navTransactions")) loadView("Transactions"); // Placeholder
+        else if (id.equals("navSettings")) loadView("Settings");//placeholder
         
         setActiveNav(source);
     }
