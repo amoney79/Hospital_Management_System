@@ -7,11 +7,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import javafx.application.Platform;
-
 import java.io.IOException;
 
 public class MainController {
@@ -38,12 +37,16 @@ public class MainController {
     private HBox navTransactions;
 
     @FXML
+    private HBox navInventory;
+
+    @FXML
     private HBox navSettings;
 
     @FXML
     public void initialize() {
         loadView("Dashboard");
         setActiveNav(navDashboard);
+        // Inventory module is loaded on-demand in openInventoryModule()
     }
 
     @FXML
@@ -57,13 +60,17 @@ public class MainController {
         else if (id.equals("navAppointments")) loadView("Appointments"); // Placeholder
         else if (id.equals("navRecords")) loadView("MedicalRecords"); // Placeholder
         else if (id.equals("navTransactions")) loadView("Transactions"); // Placeholder
+        else if (id.equals("navInventory")) {
+            openInventoryModule(event);
+            return;
+        }
         else if (id.equals("navSettings")) loadView("Settings");//placeholder
         
         setActiveNav(source);
     }
 
     private void setActiveNav(HBox activeNav) {
-        HBox[] navs = {navDashboard, navPatients, navDoctors, navAppointments, navRecords, navTransactions, navSettings};
+        HBox[] navs = {navDashboard, navPatients, navDoctors, navAppointments, navRecords, navTransactions, navInventory, navSettings};
         for (HBox nav : navs) {
             if (nav != null) {
                 nav.getStyleClass().remove("nav-item-active");
@@ -89,6 +96,39 @@ public class MainController {
             contentArea.getChildren().clear();
             contentArea.getChildren().add(placeholder);
         }
+    }
+
+    private Stage inventoryStage;
+    private com.hospital.inventory.InventoryModuleController inventoryController;
+
+    private void openInventoryModule(MouseEvent event) {
+        Stage mainStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        
+        if (inventoryStage == null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/hospital/fxml/inventory/InventoryLayout.fxml"));
+                Parent root = loader.load();
+                
+                inventoryController = loader.getController();
+                
+                inventoryStage = new Stage();
+                javafx.scene.Scene scene = new javafx.scene.Scene(root);
+                inventoryStage.setScene(scene);
+                inventoryStage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+                inventoryStage.setMaximized(true);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return; // Do not hide mainStage if load failed
+            }
+        }
+        
+        // Ensure main stage is passed to the controller so we can go back
+        if (inventoryController != null) {
+            inventoryController.setMainHmsStage(mainStage);
+        }
+        
+        inventoryStage.show();
+        mainStage.hide();
     }
 
     private double xOffset = 0;

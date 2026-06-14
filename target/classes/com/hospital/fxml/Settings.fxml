@@ -5,33 +5,81 @@
 <?import javafx.geometry.Insets?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox spacing="24" styleClass="content-area" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.controllers.Settings">
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.controllers.Settings">
 
-    <!-- Header -->
-    <VBox spacing="4">
-        <Label styleClass="page-title" text="Settings" />
-        <Label styleClass="page-subtitle" text="Manage application settings and preferences" />
-    </VBox>
+    <!-- Main container inside ScrollPane -->
+    <VBox spacing="24" styleClass="content-area">
+        <padding>
+            <Insets bottom="16" left="16" right="16" top="16" />
+        </padding>
 
-    <VBox styleClass="card">
-        <VBox styleClass="card-header">
-            <Label styleClass="card-title" text="Account Settings" />
-        </VBox>
-        <VBox spacing="16" styleClass="card-content">
+        <!-- General Settings -->
+        <VBox fx:id="generalSettingsSection" spacing="16" styleClass="card">
+            <Label styleClass="card-title" text="General Settings" />
+
+            <!-- Profile Information -->
             <VBox spacing="8">
-                <Label text="Username" styleClass="nav-text" />
-                <TextField fx:id="usernameField" promptText="Enter your username" styleClass="search-field, search-bar-container" />
+                <Label text="Username" />
+                <TextField fx:id="usernameField" promptText="Enter username" />
+                <Label text="Display Name" />
+                <TextField fx:id="displayNameField" promptText="Enter display name" />
+                <Label text="Contact Details" />
+                <TextField fx:id="contactField" promptText="Enter email/phone" />
             </VBox>
-            
+
+            <!-- Password Management -->
             <VBox spacing="8">
-                <Label text="Password" styleClass="nav-text" />
-                <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="search-field, search-bar-container" />
+                <Label text="Password" />
+                <PasswordField fx:id="passwordField" promptText="Enter password" />
+                <CheckBox fx:id="twoFactorCheckBox" text="Enable Two-Factor Authentication" />
             </VBox>
 
-            <HBox alignment="CENTER_LEFT" spacing="12">
-                <Button fx:id="saveButton" mnemonicParsing="false" styleClass="btn, btn-primary" text="Save Changes" />
-            </HBox>
+            <!-- Preferences -->
+            <VBox spacing="8">
+                <Label text="Language" />
+                <ComboBox fx:id="languageComboBox" />
+                <CheckBox fx:id="emailNotifCheckBox" text="Email Notifications" />
+                <CheckBox fx:id="smsNotifCheckBox" text="SMS Notifications" />
+            </VBox>
         </VBox>
-    </VBox>
 
-</VBox>
+        <!-- Admin Settings -->
+        <VBox fx:id="adminSettingsSection" spacing="16" styleClass="card">
+            <Label styleClass="card-title" text="Admin Settings" />
+
+            <!-- User Roles & Access -->
+            <VBox spacing="8">
+                <Label text="Assign Role" />
+                <ComboBox fx:id="roleComboBox" />
+                <Label text="Module Access" />
+                <CheckBox fx:id="patientRecordsCheckBox" text="Patient Records" />
+                <CheckBox fx:id="billingCheckBox" text="Billing" />
+                <CheckBox fx:id="pharmacyCheckBox" text="Pharmacy" />
+                <CheckBox fx:id="hrCheckBox" text="HR" />
+            </VBox>
+
+            <!-- System Configuration -->
+            <VBox spacing="8">
+                <Label text="Department" />
+                <TextField fx:id="departmentField" />
+                <Label text="Scheduling Rules" />
+                <TextField fx:id="schedulingRulesField" />
+                <Label text="Retention Policy" />
+                <TextField fx:id="retentionPolicyField" />
+            </VBox>
+
+            <!-- Security & Compliance -->
+            <VBox spacing="8">
+                <Label styleClass="card-title" text="Security Compliance" />
+                <TextArea fx:id="auditLogsArea" prefRowCount="5" editable="false" />
+                <CheckBox fx:id="accessMonitoringCheckBox" text="Enable Access Monitoring" />
+                <CheckBox fx:id="hipaaComplianceCheckBox" text="HIPAA Compliance Enabled" />
+                <CheckBox fx:id="gdprComplianceCheckBox" text="GDPR Compliance Enabled" />
+            </VBox>
+        </VBox>
+
+        <!-- Save Button -->
+        <Button fx:id="saveButton" text="Save Changes" styleClass="btn btn-primary" />
+    </VBox>
+</ScrollPane>

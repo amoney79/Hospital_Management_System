@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.inventory.InventoryDashboardController" 
+      spacing="24" style="-fx-padding: 32;" styleClass="main-content">
+      
+    <!-- Top Stats -->
+    <HBox spacing="16">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="TOTAL INVENTORY" styleClass="stat-label"/>
+            <HBox alignment="BOTTOM_LEFT" spacing="10">
+                <Label text="12,842" styleClass="stat-value"/>
+            </HBox>
+            <Label text="↑ 2.4% vs last week" styleClass="stat-indicator-positive"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" style="-fx-border-color: #ba1a1a; -fx-border-width: 0 0 0 4px;">
+            <HBox alignment="CENTER_BETWEEN">
+                <Label text="LOW STOCK ALERTS" styleClass="stat-label"/>
+                <FontIcon iconLiteral="fth-alert-triangle" iconColor="#ba1a1a" iconSize="20"/>
+            </HBox>
+            <Label text="18" styleClass="stat-value" style="-fx-text-fill: #ba1a1a;"/>
+            <Label text="Requires immediate action" styleClass="text-sm text-muted"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_BETWEEN">
+                <Label text="PENDING ORDERS" styleClass="stat-label"/>
+                <FontIcon iconLiteral="fth-truck" iconSize="20" styleClass="text-muted"/>
+            </HBox>
+            <Label text="07" styleClass="stat-value"/>
+            <Label text="3 expected today" styleClass="text-sm text-muted"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" style="-fx-background-color: #00478d;">
+            <Label text="STORAGE UTILIZATION" style="-fx-text-fill: white; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+            <Label text="84%" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;"/>
+            <!-- A basic progress bar visual -->
+            <ProgressBar progress="0.84" maxWidth="Infinity" style="-fx-accent: white; -fx-control-inner-background: rgba(255,255,255,0.2);"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="24" VBox.vgrow="ALWAYS">
+        <!-- Main Area -->
+        <VBox spacing="24" HBox.hgrow="ALWAYS">
+            <!-- Chart Placeholder -->
+            <VBox styleClass="card" VBox.vgrow="ALWAYS" style="-fx-padding: 24;">
+                <HBox alignment="CENTER_BETWEEN">
+                    <VBox>
+                        <Label text="Consumption Trends" styleClass="title-lg"/>
+                        <Label text="Monthly pharmaceutical usage vs delivery volume" styleClass="text-sm text-muted"/>
+                    </VBox>
+                    <HBox spacing="8">
+                        <Button text="Weekly" styleClass="btn btn-outline btn-sm"/>
+                        <Button text="Monthly" styleClass="btn btn-primary btn-sm"/>
+                    </HBox>
+                </HBox>
+                
+                <StackPane VBox.vgrow="ALWAYS" style="-fx-background-color: #f2f3fb; -fx-background-radius: 8; -fx-border-color: #e1e2ea; -fx-border-radius: 8;">
+                    <Label text="Bar Chart Placeholder" styleClass="text-muted"/>
+                </StackPane>
+            </VBox>
+        </VBox>
+
+        <!-- Right Sidebar -->
+        <VBox spacing="24" prefWidth="350">
+            <!-- Critical Alerts -->
+            <VBox styleClass="card" style="-fx-background-color: #ffdad6; -fx-border-color: #ffb4ab;">
+                <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 16;">
+                    <FontIcon iconLiteral="fth-alert-circle" iconColor="#93000a" iconSize="20"/>
+                    <Label text="Critical Alerts" style="-fx-text-fill: #93000a; -fx-font-weight: bold; -fx-font-size: 16px;"/>
+                </HBox>
+                <VBox spacing="8" style="-fx-padding: 0 16 16 16;">
+                    <HBox styleClass="card" style="-fx-background-color: white;" alignment="CENTER_BETWEEN" spacing="10">
+                        <VBox>
+                            <Label text="Insulin Aspart (R-102)" styleClass="font-bold text-sm"/>
+                            <Label text="Stock: 02 Units (Min: 50)" style="-fx-text-fill: #ba1a1a; -fx-font-size: 11px;"/>
+                        </VBox>
+                        <Button text="REORDER" styleClass="btn btn-ghost btn-sm" style="-fx-text-fill: #00478d;"/>
+                    </HBox>
+                    <HBox styleClass="card" style="-fx-background-color: white;" alignment="CENTER_BETWEEN" spacing="10">
+                        <VBox>
+                            <Label text="Epinephrine 1mg/ml" styleClass="font-bold text-sm"/>
+                            <Label text="Stock: 12 Units (Min: 40)" style="-fx-text-fill: #ba1a1a; -fx-font-size: 11px;"/>
+                        </VBox>
+                        <Button text="REORDER" styleClass="btn btn-ghost btn-sm" style="-fx-text-fill: #00478d;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+            
+            <StackPane styleClass="card" VBox.vgrow="ALWAYS" style="-fx-background-color: #2e3037;">
+                <Label text="System Upgrade Scheduled" style="-fx-text-fill: white;"/>
+            </StackPane>
+        </VBox>
+    </HBox>
+
+</VBox>

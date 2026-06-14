@@ -14,17 +14,17 @@
     <top>
         <HBox alignment="CENTER_RIGHT" styleClass="title-bar" onMouseDragged="#handleTitleBarDragged" onMousePressed="#handleTitleBarPressed">
             <HBox alignment="CENTER" spacing="5" styleClass="window-controls">
-                <Button mnemonicParsing="false" onAction="#handleMinimize" styleClass="window-btn, window-btn-min">
+                <Button mnemonicParsing="false" onAction="#handleMinimize" styleClass="window-btn window-btn-min">
                     <graphic>
                         <FontIcon iconLiteral="fth-minus" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" onAction="#handleMaximize" styleClass="window-btn, window-btn-max">
+                <Button mnemonicParsing="false" onAction="#handleMaximize" styleClass="window-btn window-btn-max">
                     <graphic>
                         <FontIcon iconLiteral="fth-square" />
                     </graphic>
                 </Button>
-                <Button mnemonicParsing="false" onAction="#handleClose" styleClass="window-btn, window-btn-close">
+                <Button mnemonicParsing="false" onAction="#handleClose" styleClass="window-btn window-btn-close">
                     <graphic>
                         <FontIcon iconLiteral="fth-x" />
                     </graphic>
@@ -65,6 +65,10 @@
                 <HBox fx:id="navTransactions" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
                     <FontIcon iconLiteral="fth-credit-card" styleClass="nav-icon"/>
                     <Label text="Transactions" styleClass="nav-text"/>
+                </HBox>
+                <HBox fx:id="navInventory" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fth-archive" styleClass="nav-icon"/>
+                    <Label text="Inventory" styleClass="nav-text"/>
                 </HBox>
                 <HBox fx:id="navSettings" styleClass="nav-item" onMouseClicked="#handleNavClick" alignment="CENTER_LEFT">
                     <FontIcon iconLiteral="fth-settings" styleClass="nav-icon"/>
