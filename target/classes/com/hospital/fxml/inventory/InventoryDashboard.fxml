@@ -5,8 +5,8 @@
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.inventory.InventoryDashboardController" 
-      spacing="24" style="-fx-padding: 32;" styleClass="main-content">
-      
+spacing="24" style="-fx-padding: 32;" styleClass="main-content">
+
     <!-- Top Stats -->
     <HBox spacing="16">
         <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
