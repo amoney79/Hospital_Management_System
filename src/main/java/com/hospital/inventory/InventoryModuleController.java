@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -22,6 +23,12 @@ public class InventoryModuleController {
     @FXML private HBox navMaintenance;
     @FXML private HBox navSettings;
     @FXML private HBox navSupport;
+
+    @FXML private Label headerTitle;
+    @FXML private HBox headerSearchContainer;
+    @FXML private TextField searchField;
+    @FXML private Label profileNameLabel;
+    @FXML private Label profileRoleLabel;
 
     private Stage mainHmsStage;
 
@@ -65,7 +72,41 @@ public class InventoryModuleController {
 
     private java.util.Map<String, Parent> viewCache = new java.util.HashMap<>();
 
+    private void updateHeader(String viewName) {
+        if (headerTitle == null) return; // guard if not loaded yet
+        if ("InventoryDashboard".equals(viewName)) {
+            headerTitle.setText("MedInventory Pro");
+            headerSearchContainer.setVisible(true);
+            headerSearchContainer.setManaged(true);
+            searchField.setPromptText("Search SKU, Batch, or Item...");
+            profileNameLabel.setText("Dr. Sarah Chen");
+            profileRoleLabel.setText("CHIEF PHARMACIST");
+        } else if ("InventoryDirectory".equals(viewName)) {
+            headerTitle.setText("");
+            headerSearchContainer.setVisible(true);
+            headerSearchContainer.setManaged(true);
+            searchField.setPromptText("Search inventory SKU or name...");
+            profileNameLabel.setText("Dr. Sarah Chen");
+            profileRoleLabel.setText("CHIEF PHARMACIST");
+        } else if ("InventoryOrders".equals(viewName)) {
+            headerTitle.setText("Orders & Procurement");
+            headerSearchContainer.setVisible(true);
+            headerSearchContainer.setManaged(true);
+            searchField.setPromptText("Search orders, suppliers, or SKUs...");
+            profileNameLabel.setText("Dr. Henderson");
+            profileRoleLabel.setText("PROCUREMENT LEAD");
+        } else {
+            String title = viewName.replace("Inventory", "");
+            headerTitle.setText(title);
+            headerSearchContainer.setVisible(false);
+            headerSearchContainer.setManaged(false);
+            profileNameLabel.setText("Dr. Sarah Chen");
+            profileRoleLabel.setText("CHIEF PHARMACIST");
+        }
+    }
+
     private void loadView(String viewName) {
+        updateHeader(viewName);
         if (!viewCache.containsKey(viewName)) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/hospital/fxml/inventory/" + viewName + ".fxml"));

@@ -218,11 +218,11 @@
 }
 
 .btn-primary {
-    -fx-background-color: #111827; /* gray-900 */
+    -fx-background-color: #00478d;
     -fx-text-fill: white;
 }
 .btn-primary:hover {
-    -fx-background-color: #374151; /* gray-700 */
+    -fx-background-color: #002f6c;
 }
 
 .btn-outline {
@@ -282,3 +282,289 @@
     -fx-icon-color: #9ca3af;
     -fx-icon-size: 18px;
 }
+
+/* Inventory Custom Additions */
+.root {
+    -fx-primary-color: #00478d;
+    -fx-primary-dark: #002f6c;
+    -fx-primary-light: #eff6ff;
+    -fx-background-color: #f8fafc;
+}
+
+/* Top Header Bar */
+.header-bar {
+    -fx-background-color: white;
+    -fx-padding: 12px 24px;
+    -fx-spacing: 20px;
+    -fx-border-color: transparent transparent #e2e8f0 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00478d;
+}
+
+.profile-container {
+    -fx-spacing: 10px;
+    -fx-padding: 0 10px;
+}
+
+.profile-avatar {
+    -fx-background-color: #cbd5e1;
+    -fx-background-radius: 50%;
+    -fx-pref-width: 32px;
+    -fx-pref-height: 32px;
+    -fx-min-width: 32px;
+    -fx-min-height: 32px;
+}
+
+.profile-name {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.profile-role {
+    -fx-font-size: 10px;
+    -fx-text-fill: #64748b;
+    -fx-font-weight: bold;
+}
+
+/* Sidebar Custom Override */
+.sidebar {
+    -fx-background-color: #f1f5f9; /* Slate 100 */
+}
+
+.sidebar .btn-primary {
+    -fx-background-color: #00478d;
+}
+
+.sidebar .btn-primary:hover {
+    -fx-background-color: #002f6c;
+}
+
+/* Stat Cards */
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1px;
+    -fx-padding: 20px;
+    -fx-spacing: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 5, 0, 0, 1);
+}
+
+.stat-card-critical {
+    -fx-border-color: #ffb4ab;
+    -fx-background-color: #fff5f5;
+}
+
+.stat-card-blue {
+    -fx-background-color: #00478d;
+    -fx-border-color: #00478d;
+}
+
+.stat-card-blue .stat-label,
+.stat-card-blue .stat-value,
+.stat-card-blue .text-sm,
+.stat-card-blue .text-muted {
+    -fx-text-fill: white;
+}
+
+.stat-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748b;
+}
+
+.stat-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.stat-indicator-positive {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16a34a;
+}
+
+/* Category & Status Badges */
+.badge-surgical {
+    -fx-background-color: #e0f2fe;
+    -fx-text-fill: #0369a1;
+}
+
+.badge-pharma {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1d4ed8;
+}
+
+.badge-consumable {
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #475569;
+}
+
+.badge-sent {
+    -fx-background-color: #eff6ff;
+    -fx-text-fill: #1d4ed8;
+}
+
+.badge-shipped {
+    -fx-background-color: #dcfce3;
+    -fx-text-fill: #15803d;
+}
+
+.badge-draft {
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #475569;
+}
+
+.badge-received {
+    -fx-background-color: #eff6ff;
+    -fx-text-fill: #1d4ed8;
+}
+
+.badge-critical {
+    -fx-background-color: #ffdad6;
+    -fx-text-fill: #93000a;
+}
+
+.badge-success {
+    -fx-background-color: #dcfce3;
+    -fx-text-fill: #15803d;
+}
+
+.badge-neutral {
+    -fx-background-color: #f1f5f9;
+    -fx-text-fill: #475569;
+}
+
+.badge-primary {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1d4ed8;
+}
+
+/* Table Style Polish */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: transparent transparent #cbd5e1 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f1f5f9 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 8px 0;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #f8fafc;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #eff6ff;
+}
+
+/* Custom visualizer bars for table cells */
+.stock-bar-container {
+    -fx-spacing: 4px;
+}
+
+.stock-bar-track {
+    -fx-pref-height: 4px;
+    -fx-min-height: 4px;
+    -fx-max-height: 4px;
+    -fx-background-color: #e2e8f0;
+    -fx-background-radius: 2px;
+}
+
+.stock-bar-fill-blue {
+    -fx-background-color: #00478d;
+    -fx-background-radius: 2px;
+}
+
+.stock-bar-fill-red {
+    -fx-background-color: #ba1a1a;
+    -fx-background-radius: 2px;
+}
+
+.stock-bar-fill-yellow {
+    -fx-background-color: #eab308;
+    -fx-background-radius: 2px;
+}
+
+.text-danger {
+    -fx-text-fill: #ba1a1a;
+    -fx-font-weight: bold;
+}
+
+/* JavaFX BarChart Clean & Modern Styling */
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+}
+.chart-content {
+    -fx-padding: 0;
+}
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: #f1f5f9;
+}
+.chart-alternative-row-fill {
+    -fx-fill: transparent;
+}
+.chart-alternative-column-fill {
+    -fx-fill: transparent;
+}
+.axis {
+    -fx-tick-label-fill: #64748b;
+    -fx-font-size: 11px;
+}
+.axis-label {
+    -fx-text-fill: #475569;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+.chart-bar.default-color0 {
+    -fx-bar-fill: #00478d;
+    -fx-background-radius: 4px 4px 0 0;
+}
+.chart-bar.default-color1 {
+    -fx-bar-fill: #bfdbfe;
+    -fx-background-radius: 4px 4px 0 0;
+}
+.chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 8px 0 0 0;
+}
+.chart-legend-item {
+    -fx-text-fill: #475569;
+    -fx-font-size: 12px;
+}
+.chart-legend-item-symbol {
+    -fx-background-radius: 2px;
+}
+
+

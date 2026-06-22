@@ -4,14 +4,16 @@ import javafx.beans.property.*;
 
 public class DirectoryItem {
     private final StringProperty itemName;
+    private final StringProperty subtitle;
     private final StringProperty category;
     private final StringProperty sku;
     private final IntegerProperty stockLevel;
     private final StringProperty expiration;
     private final StringProperty status; // e.g., "In Stock", "Low Stock"
 
-    public DirectoryItem(String itemName, String category, String sku, int stockLevel, String expiration, String status) {
+    public DirectoryItem(String itemName, String subtitle, String category, String sku, int stockLevel, String expiration, String status) {
         this.itemName = new SimpleStringProperty(itemName);
+        this.subtitle = new SimpleStringProperty(subtitle);
         this.category = new SimpleStringProperty(category);
         this.sku = new SimpleStringProperty(sku);
         this.stockLevel = new SimpleIntegerProperty(stockLevel);
@@ -21,6 +23,9 @@ public class DirectoryItem {
 
     public String getItemName() { return itemName.get(); }
     public StringProperty itemNameProperty() { return itemName; }
+
+    public String getSubtitle() { return subtitle.get(); }
+    public StringProperty subtitleProperty() { return subtitle; }
 
     public String getCategory() { return category.get(); }
     public StringProperty categoryProperty() { return category; }
