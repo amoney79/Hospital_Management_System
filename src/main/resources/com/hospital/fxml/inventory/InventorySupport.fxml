@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.inventory.InventorySupportController"
+    style="-fx-background-color: transparent; -fx-background: transparent; -fx-padding: 0;">
+
+    <VBox spacing="24" style="-fx-padding: 32;" styleClass="main-content">
+        <!-- Page Header -->
+        <HBox alignment="BOTTOM_LEFT" spacing="10">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <HBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Inventory" styleClass="breadcrumb"/>
+                    <FontIcon iconLiteral="fth-chevron-right" iconSize="16" styleClass="breadcrumb-icon"/>
+                    <Label text="Support" styleClass="breadcrumb-active"/>
+                </HBox>
+                <Label text="Support &amp; Help Center" styleClass="page-title"/>
+                <Label text="Monitor local system diagnostics, find answers to common questions, or file a technical support ticket." styleClass="page-subtitle"/>
+            </VBox>
+        </HBox>
+
+        <!-- System Diagnostics Card -->
+        <VBox spacing="16" styleClass="card" style="-fx-padding: 24;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <FontIcon iconLiteral="fth-activity" iconSize="20" styleClass="text-primary"/>
+                <Label text="Local System Health &amp; Diagnostics" styleClass="card-title"/>
+            </HBox>
+            <Separator />
+            <GridPane hgap="32" vgap="16">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+                <children>
+                    <!-- Left column diagnostics -->
+                    <HBox alignment="CENTER_LEFT" spacing="12" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <StackPane style="-fx-background-color: #e2fcdb; -fx-background-radius: 50%; -fx-padding: 8;">
+                            <FontIcon iconLiteral="fth-check" iconColor="#15803d" iconSize="16"/>
+                        </StackPane>
+                        <VBox spacing="2">
+                            <Label text="Local Inventory Database" style="-fx-font-weight: bold;"/>
+                            <Label text="Connected to PostgreSQL local instance" styleClass="text-sm text-muted"/>
+                        </VBox>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="12" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <StackPane style="-fx-background-color: #e2fcdb; -fx-background-radius: 50%; -fx-padding: 8;">
+                            <FontIcon iconLiteral="fth-check" iconColor="#15803d" iconSize="16"/>
+                        </StackPane>
+                        <VBox spacing="2">
+                            <Label text="Central HMS Server Link" style="-fx-font-weight: bold;"/>
+                            <Label text="Online (Latency: 28ms)" styleClass="text-sm text-muted"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Right column diagnostics -->
+                    <HBox alignment="CENTER_LEFT" spacing="12" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <StackPane style="-fx-background-color: #e2fcdb; -fx-background-radius: 50%; -fx-padding: 8;">
+                            <FontIcon iconLiteral="fth-check" iconColor="#15803d" iconSize="16"/>
+                        </StackPane>
+                        <VBox spacing="2">
+                            <Label text="Barcode Scanner Integration" style="-fx-font-weight: bold;"/>
+                            <Label text="Ready (USB HID Emulation Active)" styleClass="text-sm text-muted"/>
+                        </VBox>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="12" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <StackPane style="-fx-background-color: #e2fcdb; -fx-background-radius: 50%; -fx-padding: 8;">
+                            <FontIcon iconLiteral="fth-check" iconColor="#15803d" iconSize="16"/>
+                        </StackPane>
+                        <VBox spacing="2">
+                            <Label text="Thermal Label Printer Connection" style="-fx-font-weight: bold;"/>
+                            <Label text="Ready (Zebra ZD421 - Printing Idle)" styleClass="text-sm text-muted"/>
+                        </VBox>
+                    </HBox>
+                </children>
+            </GridPane>
+        </VBox>
+
+        <HBox spacing="24">
+            <!-- Left FAQ Column -->
+            <VBox spacing="24" HBox.hgrow="ALWAYS">
+                <VBox spacing="16" styleClass="card" style="-fx-padding: 24;" VBox.vgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <FontIcon iconLiteral="fth-help-circle" iconSize="20" styleClass="text-primary"/>
+                        <Label text="Frequently Asked Questions" styleClass="card-title"/>
+                    </HBox>
+                    <Separator />
+                    <VBox spacing="14">
+                        <VBox spacing="4" styleClass="list-item-card">
+                            <Label text="Q: How do I change an item's minimum stock safety margin?" styleClass="list-item-title"/>
+                            <Label text="A: Open the Directory tab, select the item and click Edit. Modify the safety threshold field in the edit modal and save." styleClass="text-sm text-muted" wrapText="true"/>
+                        </VBox>
+                        <VBox spacing="4" styleClass="list-item-card">
+                            <Label text="Q: What is the procedure when receiving a physical order shipment?" styleClass="list-item-title"/>
+                            <Label text="A: Go to the Orders tab, double-click the pending Purchase Order (PO) to open details, click the 'Verify &amp; Receive' button, scan items to match inventory, and confirm." styleClass="text-sm text-muted" wrapText="true"/>
+                        </VBox>
+                        <VBox spacing="4" styleClass="list-item-card">
+                            <Label text="Q: Can I integrate external vendor API catalogs?" styleClass="list-item-title"/>
+                            <Label text="A: Yes, under Settings tab -> Catalog Integration, you can customize the synchronization endpoint URI to point to external systems." styleClass="text-sm text-muted" wrapText="true"/>
+                        </VBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+
+            <!-- Right Ticket Submit Column -->
+            <VBox spacing="24" prefWidth="400">
+                <VBox spacing="16" styleClass="card" style="-fx-padding: 24;">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <FontIcon iconLiteral="fth-mail" iconSize="20" styleClass="text-primary"/>
+                        <Label text="Open Support Ticket" styleClass="card-title"/>
+                    </HBox>
+                    <Separator />
+                    <VBox spacing="12">
+                        <Label text="Topic/Subject" style="-fx-font-weight: bold;"/>
+                        <TextField fx:id="ticketSubjectField" promptText="Briefly describe the issue"/>
+
+                        <Label text="Priority" style="-fx-font-weight: bold;"/>
+                        <ComboBox fx:id="ticketPriorityCombo" maxWidth="Infinity"/>
+
+                        <Label text="Detailed Description" style="-fx-font-weight: bold;"/>
+                        <TextArea fx:id="ticketDescField" prefRowCount="4" promptText="Provide specific details, including error logs if any" wrapText="true"/>
+
+                        <Button fx:id="btnSubmitTicket" text="Submit Request" styleClass="btn btn-primary" maxWidth="Infinity" style="-fx-padding: 10 16;">
+                            <graphic>
+                                <FontIcon iconLiteral="fth-send" iconSize="14" iconColor="white"/>
+                            </graphic>
+                        </Button>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

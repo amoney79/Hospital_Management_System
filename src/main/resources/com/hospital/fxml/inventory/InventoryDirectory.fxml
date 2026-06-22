@@ -89,8 +89,9 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
             </columnResizePolicy>
         </TableView>
-        <HBox alignment="CENTER_BETWEEN" styleClass="pagination-bar" style="-fx-padding: 16;">
+        <HBox alignment="CENTER_LEFT" styleClass="pagination-bar" style="-fx-padding: 16;">
             <Label text="Showing 1 - 25 of 1,402 items" styleClass="text-sm text-muted"/>
+            <Region HBox.hgrow="ALWAYS"/>
             <HBox spacing="4" alignment="CENTER">
                 <Button text="&lt;" styleClass="btn btn-outline btn-sm" disable="true"/>
                 <Button text="1" styleClass="btn btn-primary btn-sm"/>

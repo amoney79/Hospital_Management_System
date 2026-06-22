@@ -1,4 +1,5 @@
 com\hospital\controllers\PatientsController.class
+com\hospital\inventory\OrderItem.class
 com\hospital\inventory\InventoryModuleController.class
 com\hospital\inventory\MaintenanceController$1.class
 com\hospital\inventory\InventoryDashboardController.class
@@ -13,9 +14,11 @@ com\hospital\controllers\Settings.class
 com\hospital\RunTest.class
 com\hospital\controllers\DashboardController.class
 com\hospital\inventory\OrdersController.class
+com\hospital\inventory\InventorySupportController.class
 com\hospital\MainApp.class
 com\hospital\controllers\TransactionsController.class
 com\hospital\inventory\Asset.class
 com\hospital\controllers\MedicalRecordsController.class
 com\hospital\inventory\DirectoryItem.class
 com\hospital\controllers\AppointmentsController.class
+com\hospital\inventory\InventorySettingsController.class

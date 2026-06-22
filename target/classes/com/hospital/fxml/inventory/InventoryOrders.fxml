@@ -20,8 +20,9 @@
     <!-- Stats Overview -->
     <HBox spacing="16">
         <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" prefWidth="250">
-            <HBox alignment="CENTER_BETWEEN">
+            <HBox alignment="CENTER_LEFT">
                 <Label text="BUDGET UTILIZATION (Q3)" styleClass="stat-label" />
+                <Region HBox.hgrow="ALWAYS" />
                 <FontIcon iconLiteral="fth-credit-card" iconSize="20" styleClass="text-primary" />
             </HBox>
             <HBox alignment="BOTTOM_LEFT" spacing="10">
@@ -73,8 +74,9 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <HBox alignment="CENTER_BETWEEN" styleClass="pagination-bar" style="-fx-padding: 16;">
+        <HBox alignment="CENTER_LEFT" styleClass="pagination-bar" style="-fx-padding: 16;">
             <Label text="Showing 4 of 124 orders" styleClass="text-sm text-muted" />
+            <Region HBox.hgrow="ALWAYS" />
             <HBox spacing="4" alignment="CENTER">
                 <Button text="&lt;" styleClass="btn btn-outline btn-sm" disable="true" />
                 <Button text="1" styleClass="btn btn-primary btn-sm" />

@@ -20,6 +20,8 @@ public class InventoryModuleController {
     @FXML private HBox navDirectory;
     @FXML private HBox navOrders;
     @FXML private HBox navMaintenance;
+    @FXML private HBox navSettings;
+    @FXML private HBox navSupport;
 
     private Stage mainHmsStage;
 
@@ -43,12 +45,14 @@ public class InventoryModuleController {
         else if ("navDirectory".equals(id)) loadView("InventoryDirectory");
         else if ("navOrders".equals(id)) loadView("InventoryOrders");
         else if ("navMaintenance".equals(id)) loadView("InventoryMaintenance");
+        else if ("navSettings".equals(id)) loadView("InventorySettings");
+        else if ("navSupport".equals(id)) loadView("InventorySupport");
         
         setActiveNav(source);
     }
 
     private void setActiveNav(HBox activeNav) {
-        HBox[] navs = {navDashboard, navDirectory, navOrders, navMaintenance};
+        HBox[] navs = {navDashboard, navDirectory, navOrders, navMaintenance, navSettings, navSupport};
         for (HBox nav : navs) {
             if (nav != null) {
                 nav.getStyleClass().remove("nav-item-active"); // We can style this similarly

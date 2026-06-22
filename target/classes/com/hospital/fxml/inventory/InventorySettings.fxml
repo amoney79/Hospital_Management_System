@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.inventory.InventorySettingsController"
+    style="-fx-background-color: transparent; -fx-background: transparent; -fx-padding: 0;">
+
+    <VBox spacing="24" style="-fx-padding: 32;" styleClass="main-content">
+        <!-- Page Header -->
+        <HBox alignment="BOTTOM_LEFT" spacing="10">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <HBox spacing="4" alignment="CENTER_LEFT">
+                    <Label text="Inventory" styleClass="breadcrumb"/>
+                    <FontIcon iconLiteral="fth-chevron-right" iconSize="16" styleClass="breadcrumb-icon"/>
+                    <Label text="Settings" styleClass="breadcrumb-active"/>
+                </HBox>
+                <Label text="Inventory Settings" styleClass="page-title"/>
+                <Label text="Manage threshold alerts, automated procurement rules, and vendor catalog integration." styleClass="page-subtitle"/>
+            </VBox>
+        </HBox>
+
+        <!-- Thresholds and Notifications Card -->
+        <VBox spacing="16" styleClass="card" style="-fx-padding: 24;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <FontIcon iconLiteral="fth-bell" iconSize="20" styleClass="text-primary"/>
+                <Label text="Stock Thresholds &amp; Alerts" styleClass="card-title"/>
+            </HBox>
+            <Separator />
+            <VBox spacing="12">
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="Global Low Stock Alert Level" style="-fx-font-weight: bold;"/>
+                        <Label text="Set the default threshold percent to trigger low-stock warnings." styleClass="text-sm text-muted"/>
+                    </VBox>
+                    <Spinner fx:id="thresholdSpinner" prefWidth="100"/>
+                </HBox>
+                <CheckBox fx:id="emailAlertsCheckbox" text="Send daily digest email of low stock items" selected="true" style="-fx-padding: 8 0 0 0;"/>
+                <CheckBox fx:id="smsAlertsCheckbox" text="Send instant SMS for critical medication shortages" selected="false"/>
+            </VBox>
+        </VBox>
+
+        <!-- Automated Procurement Card -->
+        <VBox spacing="16" styleClass="card" style="-fx-padding: 24;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <FontIcon iconLiteral="fth-refresh-cw" iconSize="20" styleClass="text-primary"/>
+                <Label text="Automated Procurement Rules" styleClass="card-title"/>
+            </HBox>
+            <Separator />
+            <VBox spacing="12">
+                <CheckBox fx:id="autoReorderCheckbox" text="Enable Auto-Reorder for common consumables" selected="false" style="-fx-font-weight: bold;"/>
+                <Label text="When enabled, purchase orders will be automatically drafted for approval when items run below threshold." styleClass="text-sm text-muted" wrapText="true"/>
+                
+                <GridPane hgap="16" vgap="12" style="-fx-padding: 8 0 0 0;">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="150" prefWidth="200"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+                    <children>
+                        <Label text="Preferred Vendor:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <ComboBox fx:id="preferredVendorCombo" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        
+                        <Label text="Reorder Quantity Multiplier:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="reorderQtyCombo" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    </children>
+                </GridPane>
+            </VBox>
+        </VBox>
+
+        <!-- Integration Settings Card -->
+        <VBox spacing="16" styleClass="card" style="-fx-padding: 24;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <FontIcon iconLiteral="fth-database" iconSize="20" styleClass="text-primary"/>
+                <Label text="Vendor Catalog &amp; Integration" styleClass="card-title"/>
+            </HBox>
+            <Separator />
+            <VBox spacing="12">
+                <HBox alignment="CENTER_LEFT" spacing="16">
+                    <VBox spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="HMS Local Synchronization Endpoint" style="-fx-font-weight: bold;"/>
+                        <Label text="Direct API path to local hospital information network for sync." styleClass="text-sm text-muted"/>
+                    </VBox>
+                    <TextField fx:id="syncEndpointField" text="https://hms-local.hospital.internal/api/v1/sync" prefWidth="300"/>
+                </HBox>
+                <HBox spacing="12" style="-fx-padding: 8 0 0 0;">
+                    <Button fx:id="btnSyncNow" text="Sync Catalog Now" styleClass="btn btn-outline">
+                        <graphic>
+                            <FontIcon iconLiteral="fth-refresh-ccw" iconSize="14"/>
+                        </graphic>
+                    </Button>
+                    <Label fx:id="syncStatusLabel" text="Last synced: Today, 08:34 AM" styleClass="text-sm text-muted" style="-fx-padding: 8 0 0 0;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+
+        <!-- Footer Actions -->
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <Button fx:id="btnReset" text="Reset" styleClass="btn btn-outline" prefWidth="100"/>
+            <Button fx:id="btnSave" text="Save Changes" styleClass="btn btn-primary" prefWidth="150"/>
+        </HBox>
+    </VBox>
+</ScrollPane>

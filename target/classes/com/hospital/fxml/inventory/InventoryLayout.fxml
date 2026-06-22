@@ -75,11 +75,11 @@
                         <FontIcon iconLiteral="fth-refresh-cw" iconSize="16" />
                     </graphic>
                 </Button>
-                <HBox styleClass="nav-item">
+                <HBox fx:id="navSettings" styleClass="nav-item" onMouseClicked="#handleNavClick">
                     <FontIcon iconLiteral="fth-settings" iconSize="20" styleClass="nav-icon" />
                     <Label text="Settings" styleClass="nav-text" />
                 </HBox>
-                <HBox styleClass="nav-item">
+                <HBox fx:id="navSupport" styleClass="nav-item" onMouseClicked="#handleNavClick">
                     <FontIcon iconLiteral="fth-help-circle" iconSize="20" styleClass="nav-icon" />
                     <Label text="Support" styleClass="nav-text" />
                 </HBox>
