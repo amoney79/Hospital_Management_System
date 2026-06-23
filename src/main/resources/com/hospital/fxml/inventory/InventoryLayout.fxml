@@ -41,7 +41,7 @@
         <VBox styleClass="sidebar">
             <HBox alignment="CENTER_LEFT" spacing="12" styleClass="brand-container">
                 <StackPane styleClass="brand-icon-container">
-                    <FontIcon iconLiteral="fth-x" iconSize="20" styleClass="brand-icon" />
+                    <FontIcon iconLiteral="fth-menu" iconSize="20" styleClass="brand-icon" />
                 </StackPane>
                 <VBox alignment="CENTER_LEFT" spacing="2">
                     <Label text="Central Clinical" styleClass="brand-title" />
@@ -97,9 +97,11 @@
             <HBox styleClass="header-bar" alignment="CENTER_LEFT">
                 <Label fx:id="headerTitle" text="MedInventory Pro" styleClass="header-title" />
                 <Region prefWidth="20" />
-                <HBox fx:id="headerSearchContainer" alignment="CENTER_LEFT" spacing="8" styleClass="search-bar-container" HBox.hgrow="ALWAYS" maxWidth="400">
+                <HBox fx:id="headerSearchContainer" alignment="CENTER_LEFT" spacing="8"
+                    styleClass="search-bar-container" HBox.hgrow="ALWAYS" maxWidth="400">
                     <FontIcon iconLiteral="fth-search" styleClass="search-icon" />
-                    <TextField fx:id="searchField" promptText="Search SKU, Batch, or Item..." styleClass="search-field" HBox.hgrow="ALWAYS" />
+                    <TextField fx:id="searchField" promptText="Search SKU, Batch, or Item..."
+                        styleClass="search-field" HBox.hgrow="ALWAYS" />
                 </HBox>
                 <Region HBox.hgrow="ALWAYS" />
                 <HBox alignment="CENTER_RIGHT" spacing="16" styleClass="profile-container">
@@ -110,7 +112,8 @@
                     </Button>
                     <Button styleClass="window-btn">
                         <graphic>
-                            <FontIcon iconLiteral="fth-help-circle" iconSize="18" iconColor="#64748b" />
+                            <FontIcon iconLiteral="fth-help-circle" iconSize="18"
+                                iconColor="#64748b" />
                         </graphic>
                     </Button>
                     <Separator orientation="VERTICAL" prefHeight="24" />
@@ -119,13 +122,16 @@
                             <FontIcon iconLiteral="fth-user" iconSize="16" iconColor="#475569" />
                         </StackPane>
                         <VBox alignment="CENTER_LEFT">
-                            <Label fx:id="profileNameLabel" text="Dr. Sarah Chen" styleClass="profile-name" />
-                            <Label fx:id="profileRoleLabel" text="CHIEF PHARMACIST" styleClass="profile-role" />
+                            <Label fx:id="profileNameLabel" text="Dr. Sarah Chen"
+                                styleClass="profile-name" />
+                            <Label fx:id="profileRoleLabel" text="CHIEF PHARMACIST"
+                                styleClass="profile-role" />
                         </VBox>
                     </HBox>
                 </HBox>
             </HBox>
-            <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" style="-fx-background-color: #f8fafc;" />
+            <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: #f8fafc;" />
         </VBox>
     </center>
 </BorderPane>
