@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.controllers.MaternityController"
+    spacing="16" style="-fx-padding: 24;">
+    <Label text="Maternity Details" styleClass="page-title"/>
+
+    <HBox spacing="12">
+        <Label text="Expected Delivery Date:"/>
+        <Label fx:id="deliveryDateLabel"/>
+    </HBox>
+
+    <HBox spacing="12">
+        <Label text="Obstetrician:"/>
+        <Label fx:id="obstetricianLabel"/>
+    </HBox>
+
+    <HBox spacing="12">
+        <Label text="Pregnancy Stage:"/>
+        <Label fx:id="pregnancyStageLabel"/>
+    </HBox>
+
+    <HBox spacing="12">
+        <Label text="Notes:"/>
+        <TextArea fx:id="notesArea" prefRowCount="4"/>
+    </HBox>
+</VBox>
