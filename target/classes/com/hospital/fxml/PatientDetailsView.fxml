@@ -1,0 +1,31 @@
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.controllers.PatientDetailsController"
+      spacing="24" style="-fx-padding: 24;">
+    <Label text="Patient Details" styleClass="page-title"/>
+
+    <!-- Inpatient Section -->
+    <VBox fx:id="inpatientSection" spacing="12" visible="false" managed="false">
+        <Label text="Inpatient Information" styleClass="section-title"/>
+        <HBox spacing="12"><Label text="Ward:"/><Label fx:id="wardLabel"/></HBox>
+        <HBox spacing="12"><Label text="Bed Number:"/><Label fx:id="bedLabel"/></HBox>
+        <HBox spacing="12"><Label text="Admission Date:"/><Label fx:id="admissionDateLabel"/></HBox>
+        <HBox spacing="12"><Label text="Doctor Assigned:"/><Label fx:id="doctorLabel"/></HBox>
+    </VBox>
+
+    <!-- Outpatient Section -->
+    <VBox fx:id="outpatientSection" spacing="12" visible="false" managed="false">
+        <Label text="Outpatient Information" styleClass="section-title"/>
+        <HBox spacing="12"><Label text="Visit Date:"/><Label fx:id="visitDateLabel"/></HBox>
+        <HBox spacing="12"><Label text="Consultation Type:"/><Label fx:id="consultationTypeLabel"/></HBox>
+        <HBox spacing="12"><Label text="Doctor Assigned:"/><Label fx:id="outDoctorLabel"/></HBox>
+        <HBox spacing="12"><Label text="Next Appointment:"/><Label fx:id="nextAppointmentLabel"/></HBox>
+    </VBox>
+
+    <!-- Maternity Section -->
+    <VBox fx:id="maternitySection" spacing="12" visible="false" managed="false">
+        <Label text="Maternity Information" styleClass="section-title"/>
+        <HBox spacing="12"><Label text="Expected Delivery Date:"/><Label fx:id="deliveryDateLabel"/></HBox>
+        <HBox spacing="12"><Label text="Obstetrician:"/><Label fx:id="obstetricianLabel"/></HBox>
+        <HBox spacing="12"><Label text="Pregnancy Stage:"/><Label fx:id="pregnancyStageLabel"/></HBox>
+        <HBox spacing="12"><Label text="Notes:"/><TextArea fx:id="notesArea" prefRowCount="4"/></HBox>
+    </VBox>
+</VBox>

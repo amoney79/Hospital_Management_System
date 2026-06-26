@@ -9,8 +9,10 @@ module com.hospital {
     opens com.hospital to javafx.fxml;
     opens com.hospital.controllers to javafx.fxml;
     opens com.hospital.inventory to javafx.fxml;
+    opens com.hospital.models to javafx.fxml;
 
     exports com.hospital;
     exports com.hospital.controllers;
     exports com.hospital.inventory;
+    exports com.hospital.models;
 }
