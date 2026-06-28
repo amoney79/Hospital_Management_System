@@ -16,9 +16,12 @@ import java.io.IOException;
 
 public class PatientsController {
 
-    @FXML private TextField searchField;
-    @FXML private FlowPane patientsGrid;
-    @FXML private Button addPatientButton;
+    @FXML
+    private TextField searchField;
+    @FXML
+    private FlowPane patientsGrid;
+    @FXML
+    private Button addPatientButton;
 
     @FXML
     public void initialize() {
@@ -62,19 +65,29 @@ public class PatientsController {
         typeCombo.getItems().addAll("INPATIENT", "OUTPATIENT", "MATERNITY");
         typeCombo.setPromptText("Select Patient Type");
 
-        grid.add(new Label("Name:"), 0, 0); grid.add(nameInput, 1, 0);
-        grid.add(new Label("Age:"), 0, 1); grid.add(ageInput, 1, 1);
-        grid.add(new Label("Gender:"), 0, 2); grid.add(genderInput, 1, 2);
-        grid.add(new Label("Blood Type:"), 0, 3); grid.add(bloodInput, 1, 3);
-        grid.add(new Label("Phone:"), 0, 4); grid.add(phoneInput, 1, 4);
-        grid.add(new Label("Email:"), 0, 5); grid.add(emailInput, 1, 5);
-        grid.add(new Label("Type:"), 0, 6); grid.add(typeCombo, 1, 6);
+        ComboBox<String> genderCombo = new ComboBox<>();
+        genderCombo.getItems().addAll("Male", "Female", "Other");
+        genderCombo.setPromptText("Select Gender");
+
+        grid.add(new Label("Name:"), 0, 0);
+        grid.add(nameInput, 1, 0);
+        grid.add(new Label("Age:"), 0, 1);
+        grid.add(ageInput, 1, 1);
+        grid.add(new Label("Gender:"), 0, 2);
+        grid.add(genderCombo, 1, 2);
+        grid.add(new Label("Blood Type:"), 0, 3);
+        grid.add(bloodInput, 1, 3);
+        grid.add(new Label("Phone:"), 0, 4);
+        grid.add(phoneInput, 1, 4);
+        grid.add(new Label("Email:"), 0, 5);
+        grid.add(emailInput, 1, 5);
+        grid.add(new Label("Type:"), 0, 6);
+        grid.add(typeCombo, 1, 6);
 
         dialogPane.setContent(grid);
 
         dialogPane.lookupButton(ButtonType.OK).setStyle(
-            "-fx-background-color: #111827; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 16; -fx-background-radius: 6;"
-        );
+                "-fx-background-color: #111827; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 16; -fx-background-radius: 6;");
 
         dialog.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
@@ -101,10 +114,14 @@ public class PatientsController {
     private void loadPatients() {
         patientsGrid.getChildren().clear();
 
-        Patient p1 = new Patient("Sarah Johnson", 34, "Female", "Active", "O+", "(555) 123-4567", "sarah.j@example.com", Patient.PatientType.INPATIENT);
-        Patient p2 = new Patient("Michael Chen", 45, "Male", "Active", "A-", "(555) 987-6543", "m.chen@example.com", Patient.PatientType.OUTPATIENT);
-        Patient p3 = new Patient("Emily Brown", 28, "Female", "Active", "B+", "(555) 456-7890", "emily.b@example.com", Patient.PatientType.MATERNITY);
-        Patient p4 = new Patient("James Wilson", 52, "Male", "Active", "AB+", "(555) 234-5678", "j.wilson@example.com", Patient.PatientType.INPATIENT);
+        Patient p1 = new Patient("Sarah Johnson", 34, "Female", "Active", "O+", "(555) 123-4567", "sarah.j@example.com",
+                Patient.PatientType.INPATIENT);
+        Patient p2 = new Patient("Michael Chen", 45, "Male", "Active", "A-", "(555) 987-6543", "m.chen@example.com",
+                Patient.PatientType.OUTPATIENT);
+        Patient p3 = new Patient("Emily Brown", 28, "Female", "Active", "B+", "(555) 456-7890", "emily.b@example.com",
+                Patient.PatientType.MATERNITY);
+        Patient p4 = new Patient("James Wilson", 52, "Male", "Active", "AB+", "(555) 234-5678", "j.wilson@example.com",
+                Patient.PatientType.INPATIENT);
 
         addPatientCard(p1);
         addPatientCard(p2);
@@ -141,7 +158,8 @@ public class PatientsController {
         detailsBox.getChildren().add(createDetailRow("Status:", patient.getStatus()));
 
         HBox actionsBox = new HBox(8);
-        actionsBox.setStyle("-fx-border-color: #e5e7eb transparent transparent transparent; -fx-border-width: 1 0 0 0; -fx-padding: 16 0 0 0;");
+        actionsBox.setStyle(
+                "-fx-border-color: #e5e7eb transparent transparent transparent; -fx-border-width: 1 0 0 0; -fx-padding: 16 0 0 0;");
 
         Button editBtn = new Button("Edit");
         editBtn.getStyleClass().addAll("btn", "btn-outline");
@@ -205,7 +223,8 @@ public class PatientsController {
                     Patient patient = (Patient) userData;
                     boolean matches = patient.getName().toLowerCase().contains(lowerCaseQuery)
                             || patient.getGender().toLowerCase().contains(lowerCaseQuery)
-                            || (patient.getType() != null && patient.getType().name().toLowerCase().contains(lowerCaseQuery));
+                            || (patient.getType() != null
+                                    && patient.getType().name().toLowerCase().contains(lowerCaseQuery));
                     card.setVisible(matches);
                     card.setManaged(matches);
                 }

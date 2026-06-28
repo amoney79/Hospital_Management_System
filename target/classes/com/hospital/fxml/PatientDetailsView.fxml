@@ -1,5 +1,5 @@
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.hospital.controllers.PatientDetailsController"
-      spacing="24" style="-fx-padding: 24;">
+spacing="24" style="-fx-padding: 24;">
     <Label text="Patient Details" styleClass="page-title"/>
 
     <!-- Inpatient Section -->
