@@ -39,43 +39,43 @@ public class PatientDetailsController {
     }
 
     private void loadPatientData() {
-        if (patient == null) return;
+    if (patient == null) return;
 
-        // Hide all sections first
-        inpatientSection.setVisible(false);
-        inpatientSection.setManaged(false);
-        outpatientSection.setVisible(false);
-        outpatientSection.setManaged(false);
-        maternitySection.setVisible(false);
-        maternitySection.setManaged(false);
+    // Hide all sections first
+    inpatientSection.setVisible(false);
+    inpatientSection.setManaged(false);
+    outpatientSection.setVisible(false);
+    outpatientSection.setManaged(false);
+    maternitySection.setVisible(false);
+    maternitySection.setManaged(false);
 
-        switch (patient.getType()) {
-            case INPATIENT:
-                inpatientSection.setVisible(true);
-                inpatientSection.setManaged(true);
-                wardLabel.setText(patient.getWard());
-                bedLabel.setText(patient.getBedNumber());
-                admissionDateLabel.setText(patient.getAdmissionDate().toString());
-                doctorLabel.setText(patient.getDoctorAssigned());
-                break;
+    switch (patient.getType()) {
+        case INPATIENT:
+            inpatientSection.setVisible(true);
+            inpatientSection.setManaged(true);
+            wardLabel.setText(patient.getWard() != null ? patient.getWard() : "N/A");
+            bedLabel.setText(patient.getBedNumber() != null ? patient.getBedNumber() : "N/A");
+            admissionDateLabel.setText(patient.getAdmissionDate() != null ? patient.getAdmissionDate().toString() : "N/A");
+            doctorLabel.setText(patient.getDoctorAssigned() != null ? patient.getDoctorAssigned() : "N/A");
+            break;
 
-            case OUTPATIENT:
-                outpatientSection.setVisible(true);
-                outpatientSection.setManaged(true);
-                visitDateLabel.setText(patient.getVisitDate().toString());
-                consultationTypeLabel.setText(patient.getConsultationType());
-                outDoctorLabel.setText(patient.getDoctorAssigned());
-                nextAppointmentLabel.setText(patient.getNextAppointment().toString());
-                break;
+        case OUTPATIENT:
+            outpatientSection.setVisible(true);
+            outpatientSection.setManaged(true);
+            visitDateLabel.setText(patient.getVisitDate() != null ? patient.getVisitDate().toString() : "N/A");
+            consultationTypeLabel.setText(patient.getConsultationType() != null ? patient.getConsultationType() : "N/A");
+            outDoctorLabel.setText(patient.getDoctorAssigned() != null ? patient.getDoctorAssigned() : "N/A");
+            nextAppointmentLabel.setText(patient.getNextAppointment() != null ? patient.getNextAppointment().toString() : "N/A");
+            break;
 
-            case MATERNITY:
-                maternitySection.setVisible(true);
-                maternitySection.setManaged(true);
-                deliveryDateLabel.setText(patient.getDeliveryDate().toString());
-                obstetricianLabel.setText(patient.getObstetrician());
-                pregnancyStageLabel.setText(patient.getPregnancyStage());
-                notesArea.setText(patient.getNotes());
-                break;
-        }
+        case MATERNITY:
+            maternitySection.setVisible(true);
+            maternitySection.setManaged(true);
+            deliveryDateLabel.setText(patient.getDeliveryDate() != null ? patient.getDeliveryDate().toString() : "N/A");
+            obstetricianLabel.setText(patient.getObstetrician() != null ? patient.getObstetrician() : "N/A");
+            pregnancyStageLabel.setText(patient.getPregnancyStage() != null ? patient.getPregnancyStage() : "N/A");
+            notesArea.setText(patient.getNotes() != null ? patient.getNotes() : "N/A");
+            break;
+    }
     }
 }
