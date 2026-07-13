@@ -86,7 +86,7 @@ public class MainController {
 }
 
 
-    private void loadView(String viewName) {
+    public void loadView(String viewName) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/hospital/fxml/" + viewName + ".fxml"));
             Parent view = loader.load();
