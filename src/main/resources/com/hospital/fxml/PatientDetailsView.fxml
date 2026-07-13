@@ -11,6 +11,11 @@
 
     <Label text="Patient Details" styleClass="page-title" />
 
+    <HBox spacing="12">
+    <Button text="← Back to Patients" onAction="#handleBack"/>
+</HBox>
+
+
     <!-- Inpatient Section -->
     <VBox fx:id="inpatientSection" spacing="12" visible="false" managed="false">
         <Label text="Inpatient Information" styleClass="section-title" />
