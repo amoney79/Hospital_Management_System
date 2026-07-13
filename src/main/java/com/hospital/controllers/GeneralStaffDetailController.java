@@ -1,15 +1,9 @@
-package com.hms.controllers;
+package com.hospital.controllers;
 
 // JavaFX imports
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TitledPane;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
 
 /**
  * Controller for GeneralStaffDetailView.fxml
@@ -71,7 +65,6 @@ public class GeneralStaffDetailController {
         System.out.println("Achievements: " + achievementsField.getText());
         System.out.println("Memberships: " + membershipsField.getText());
 
-        // TODO: Persist these details into your database or backend service
     }
 
     /**
