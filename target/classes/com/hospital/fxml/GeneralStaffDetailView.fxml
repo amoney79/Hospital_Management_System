@@ -1,0 +1,53 @@
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hms.controllers.GeneralStaffDetailController"
+            fitToWidth="true">
+    <VBox spacing="20" alignment="TOP_CENTER" padding="20">
+        <Label text="Staff Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
+
+        <!-- Personal Information -->
+        <TitledPane text="Personal Information" expanded="true">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="nameField" promptText="Full Name"/>
+                <TextField fx:id="idNumberField" promptText="Identification Number"/>
+                <TextField fx:id="contactField" promptText="Contact Details (Phone, Email)"/>
+                <TextField fx:id="addressField" promptText="Address"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Employment Information -->
+        <TitledPane text="Employment Information" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="roleField" promptText="Role / Position"/>
+                <TextField fx:id="departmentField" promptText="Department"/>
+                <TextField fx:id="employmentDateField" promptText="Employment Start Date"/>
+                <TextField fx:id="contractTypeField" promptText="Contract Type (Permanent, Temporary, etc.)"/>
+                <TextField fx:id="shiftDetailsField" promptText="Shift Details / Schedule"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Compliance & Legal -->
+        <TitledPane text="Compliance and Legal" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="backgroundChecksField" promptText="Background Checks"/>
+                <TextArea fx:id="referencesField" promptText="Professional References"/>
+                <TextArea fx:id="certificationsField" promptText="Certifications / Training"/>
+                <TextArea fx:id="immunizationRecordsField" promptText="Immunization Records"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Optional Information -->
+        <TitledPane text="Optional Information" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="notesField" promptText="Additional Notes"/>
+                <TextArea fx:id="achievementsField" promptText="Achievements / Awards"/>
+                <TextArea fx:id="membershipsField" promptText="Professional Memberships"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Action Buttons -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Save" onAction="#handleSave"/>
+            <Button text="Cancel" onAction="#handleCancel"/>
+        </HBox>
+    </VBox>
+</ScrollPane>
