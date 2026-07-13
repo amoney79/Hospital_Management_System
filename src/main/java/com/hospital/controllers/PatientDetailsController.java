@@ -78,4 +78,9 @@ public class PatientDetailsController {
             break;
     }
     }
+
+    public void setMainController(MainController mainController) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setMainController'");
+    }
 }

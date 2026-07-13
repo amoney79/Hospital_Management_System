@@ -3,23 +3,24 @@ package com.hospital.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.geometry.Pos;
-import javafx.stage.Stage;
 import org.kordamp.ikonli.javafx.FontIcon;
-
 import com.hospital.models.Patient;
-
 import java.io.IOException;
-import java.net.URL;
 
 public class PatientsController {
 
     @FXML private TextField searchField;
     @FXML private FlowPane patientsGrid;
     @FXML private Button addPatientButton;
+
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
 
     @FXML
     public void initialize() {
@@ -47,7 +48,6 @@ public class PatientsController {
         TextField phoneInput = new TextField(); phoneInput.setPromptText("Phone");
         TextField emailInput = new TextField(); emailInput.setPromptText("Email");
 
-        // FIX: removed genderInput TextField — using only genderCombo
         ComboBox<String> genderCombo = new ComboBox<>();
         genderCombo.getItems().addAll("Male", "Female", "Other");
         genderCombo.setPromptText("Select Gender");
@@ -73,7 +73,6 @@ public class PatientsController {
                 Patient patient = new Patient();
                 patient.setName(nameInput.getText().isEmpty()   ? "New Patient" : nameInput.getText());
                 patient.setAge(ageInput.getText().isEmpty()     ? 0 : Integer.parseInt(ageInput.getText()));
-                // FIX: read from genderCombo, not genderInput
                 patient.setGender(genderCombo.getValue() != null ? genderCombo.getValue() : "Unknown");
                 patient.setBloodType(bloodInput.getText().isEmpty() ? "N/A" : bloodInput.getText());
                 patient.setPhone(phoneInput.getText().isEmpty()     ? "N/A" : phoneInput.getText());
@@ -107,7 +106,7 @@ public class PatientsController {
         BorderPane topBox = new BorderPane();
         VBox nameBox = new VBox(2);
         Label nameL    = new Label(patient.getName()); nameL.getStyleClass().add("card-title");
-        Label detailsL = new Label(patient.getAge() + " yrs  " + patient.getGender());
+        Label detailsL = new Label(patient.getAge() + " yrs • " + patient.getGender());
         detailsL.getStyleClass().add("list-item-subtitle");
         nameBox.getChildren().addAll(nameL, detailsL);
         topBox.setLeft(nameBox);
@@ -130,8 +129,6 @@ public class PatientsController {
 
         Button editBtn = new Button("Edit");
         editBtn.getStyleClass().addAll("btn", "btn-outline");
-        editBtn.setMaxWidth(Double.MAX_VALUE);
-        HBox.setHgrow(editBtn, Priority.ALWAYS);
         FontIcon editIcon = new FontIcon("fth-edit"); editIcon.setIconSize(14);
         editBtn.setGraphic(editIcon);
 
@@ -140,11 +137,7 @@ public class PatientsController {
         FontIcon deleteIcon = new FontIcon("fth-trash-2"); deleteIcon.setIconSize(14);
         deleteBtn.setGraphic(deleteIcon);
 
-        // FIX: consume events so they don't bubble up to openPatientView
-        editBtn.setOnMouseClicked(event -> {
-            event.consume();
-
-        });
+        editBtn.setOnMouseClicked(event -> event.consume());
         deleteBtn.setOnMouseClicked(event -> {
             event.consume();
             patientsGrid.getChildren().remove(card);
@@ -161,42 +154,28 @@ public class PatientsController {
     }
 
     private void openPatientView(Patient patient) {
-        String fxmlPath = "/com/hospital/fxml/PatientDetailsView.fxml";
-        URL url = getClass().getResource(fxmlPath);
-
-        // FIX: null-check with clear diagnostics
-        if (url == null) {
-            System.err.println("ERROR: FXML not found at classpath: " + fxmlPath);
-            System.err.println("Ensure file exists at: src/main/resources" + fxmlPath);
-            return;
-        }
-
         try {
-            FXMLLoader loader = new FXMLLoader(url);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/hospital/fxml/PatientDetailsView.fxml"));
             Parent view = loader.load();
 
             PatientDetailsController controller = loader.getController();
             controller.setPatient(patient);
+            controller.setMainController(mainController);
 
-             // Access the MainController and set content
-        MainController mainController = getMainController();
-        if (mainController != null) {
-            mainController.setContent(view);
-
-            Stage stage = new Stage();
-            stage.setTitle("Patient Details - " + patient.getName());
-            stage.setScene(new Scene(view));
-            stage.show();
-
-        } catch (IOException | IllegalStateException e) { // FIX: catch both exception types
+            if (mainController != null) {
+                mainController.setContent(view);
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private HBox createDetailRow(String label, String value) {
         HBox row = new HBox(8);
-        Label lbl = new Label(label); lbl.setStyle("-fx-text-fill: #4b5563; -fx-font-size: 14;");
-        Label val = new Label(value); val.setStyle("-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 14;");
+        Label lbl = new Label(label);
+        lbl.setStyle("-fx-text-fill: #4b5563; -fx-font-size: 14;");
+        Label val = new Label(value);
+        val.setStyle("-fx-text-fill: #111827; -fx-font-weight: bold; -fx-font-size: 14;");
         row.getChildren().addAll(lbl, val);
         return row;
     }

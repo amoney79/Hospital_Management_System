@@ -81,6 +81,11 @@ public class MainController {
         }
     }
 
+    public void setContent(Parent view) {
+    contentArea.getChildren().setAll(view);
+}
+
+
     private void loadView(String viewName) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/hospital/fxml/" + viewName + ".fxml"));
@@ -121,6 +126,7 @@ public class MainController {
                 return; // Do not hide mainStage if load failed
             }
         }
+
         
         // Ensure main stage is passed to the controller so we can go back
         if (inventoryController != null) {
