@@ -1,0 +1,124 @@
+package com.hospital.controllers;
+
+// JavaFX imports
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
+
+
+/**
+ * Controller for DoctorsDetailView.fxml
+ */
+public class DoctorsDetailController {
+
+    // Professional & Educational Background
+    @FXML
+    private TextField medicalDegreeField;
+    @FXML
+    private TextArea residencyField;
+    @FXML
+    private TextArea boardCertificationsField;
+    @FXML
+    private TextArea licensingInfoField;
+
+    // Work Experience
+    @FXML
+    private TextArea previousHospitalsField;
+    @FXML
+    private TextArea proceduresExpertiseField;
+    @FXML
+    private TextArea researchTeachingField;
+
+    // Compliance & Legal Requirements
+    @FXML
+    private TextArea malpracticeInsuranceField;
+    @FXML
+    private TextArea backgroundChecksField;
+    @FXML
+    private TextArea referencesField;
+    @FXML
+    private TextArea immunizationRecordsField;
+
+    // Personal & Administrative Information
+    @FXML
+    private TextArea cvField;
+    @FXML
+    private TextArea idDocsField;
+    @FXML
+    private TextField contactDetailsField;
+    @FXML
+    private TextField availabilityField;
+
+    // Optional but Valuable
+    @FXML
+    private TextArea sopField;
+    @FXML
+    private TextArea membershipsField;
+    @FXML
+    private TextArea continuingEducationField;
+
+    /**
+     * Handle Save button click
+     */
+    @FXML
+    private void handleSave() {
+        // Collect values and log them (replace with DB persistence)
+        System.out.println("Doctor Details Saved:");
+        System.out.println("Medical Degree: " + medicalDegreeField.getText());
+        System.out.println("Residency: " + residencyField.getText());
+        System.out.println("Board Certifications: " + boardCertificationsField.getText());
+        System.out.println("Licensing Info: " + licensingInfoField.getText());
+
+        System.out.println("Previous Hospitals: " + previousHospitalsField.getText());
+        System.out.println("Procedures Expertise: " + proceduresExpertiseField.getText());
+        System.out.println("Research/Teaching: " + researchTeachingField.getText());
+
+        System.out.println("Malpractice Insurance: " + malpracticeInsuranceField.getText());
+        System.out.println("Background Checks: " + backgroundChecksField.getText());
+        System.out.println("References: " + referencesField.getText());
+        System.out.println("Immunization Records: " + immunizationRecordsField.getText());
+
+        System.out.println("CV: " + cvField.getText());
+        System.out.println("ID Docs: " + idDocsField.getText());
+        System.out.println("Contact Details: " + contactDetailsField.getText());
+        System.out.println("Availability: " + availabilityField.getText());
+
+        System.out.println("Statement of Purpose: " + sopField.getText());
+        System.out.println("Memberships: " + membershipsField.getText());
+        System.out.println("Continuing Education: " + continuingEducationField.getText());
+
+        
+    }
+
+    /**
+     * Handle Cancel button click
+     */
+    @FXML
+    private void handleCancel() {
+        // Clear all fields
+        medicalDegreeField.clear();
+        residencyField.clear();
+        boardCertificationsField.clear();
+        licensingInfoField.clear();
+
+        previousHospitalsField.clear();
+        proceduresExpertiseField.clear();
+        researchTeachingField.clear();
+
+        malpracticeInsuranceField.clear();
+        backgroundChecksField.clear();
+        referencesField.clear();
+        immunizationRecordsField.clear();
+
+        cvField.clear();
+        idDocsField.clear();
+        contactDetailsField.clear();
+        availabilityField.clear();
+
+        sopField.clear();
+        membershipsField.clear();
+        continuingEducationField.clear();
+
+        System.out.println("Doctor Details form cleared.");
+    }
+}
