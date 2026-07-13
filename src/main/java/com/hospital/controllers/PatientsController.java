@@ -178,6 +178,11 @@ public class PatientsController {
             PatientDetailsController controller = loader.getController();
             controller.setPatient(patient);
 
+             // Access the MainController and set content
+        MainController mainController = getMainController();
+        if (mainController != null) {
+            mainController.setContent(view);
+
             Stage stage = new Stage();
             stage.setTitle("Patient Details - " + patient.getName());
             stage.setScene(new Scene(view));
