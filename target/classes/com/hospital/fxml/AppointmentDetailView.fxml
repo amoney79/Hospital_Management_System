@@ -48,7 +48,7 @@
         </TitledPane>
 
         <!-- Administrative & Support -->
-        <TitledPane text="Administrative & Support" expanded="false">
+        <TitledPane text="Administrative and Support" expanded="false">
             <VBox spacing="10" padding="10">
                 <TextArea fx:id="reasonForVisitField" promptText="Reason for Visit"/>
                 <TextField fx:id="referralSourceField" promptText="Referral Source"/>
@@ -58,7 +58,7 @@
         </TitledPane>
 
         <!-- Notifications & Tracking -->
-        <TitledPane text="Notifications & Tracking" expanded="false">
+        <TitledPane text="Notifications and Tracking" expanded="false">
             <VBox spacing="10" padding="10">
                 <TextField fx:id="reminderSentField" promptText="Reminder Sent (Yes/No, Time Sent)"/>
                 <TextField fx:id="checkInTimeField" promptText="Check-in Time"/>
