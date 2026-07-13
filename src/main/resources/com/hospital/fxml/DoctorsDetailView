@@ -1,0 +1,61 @@
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hms.controllers.DoctorsDetailController"
+            fitToWidth="true">
+    <VBox spacing="20" alignment="TOP_CENTER" padding="20">
+        <Label text="Doctor Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
+
+        <!-- Professional & Educational Background -->
+        <TitledPane text="Professional and Educational Background" expanded="true">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="medicalDegreeField" promptText="Medical Degree / Transcripts"/>
+                <TextArea fx:id="residencyField" promptText="Residency and Fellowship Details"/>
+                <TextArea fx:id="boardCertificationsField" promptText="Board Certifications"/>
+                <TextArea fx:id="licensingInfoField" promptText="Licensing Information"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Work Experience -->
+        <TitledPane text="Work Experience" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="previousHospitalsField" promptText="Previous Hospitals / Roles / Dates"/>
+                <TextArea fx:id="proceduresExpertiseField" promptText="Specialized Procedures Expertise"/>
+                <TextArea fx:id="researchTeachingField" promptText="Research Publications and Teaching Experience"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Compliance & Legal Requirements -->
+        <TitledPane text="Compliance and Legal Requirements" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="malpracticeInsuranceField" promptText="Malpractice Insurance Proof"/>
+                <TextArea fx:id="backgroundChecksField" promptText="Background Checks"/>
+                <TextArea fx:id="referencesField" promptText="Professional References"/>
+                <TextArea fx:id="immunizationRecordsField" promptText="Immunization Records"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Personal "&" Administrative Information -->
+        <TitledPane text="Personal and  Administrative Information" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="cvField" promptText="Curriculum Vitae"/>
+                <TextArea fx:id="idDocsField" promptText="Identification Documents"/>
+                <TextField fx:id="contactDetailsField" promptText="Contact Details"/>
+                <TextField fx:id="availabilityField" promptText="Availability / Notice Period"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Optional but Valuable -->
+        <TitledPane text="Optional but Valuable" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="sopField" promptText="Statement of Purpose / Cover Letter"/>
+                <TextArea fx:id="membershipsField" promptText="Professional Memberships"/>
+                <TextArea fx:id="continuingEducationField" promptText="Continuing Education Certificates"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Action Buttons -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Save" onAction="#handleSave"/>
+            <Button text="Cancel" onAction="#handleCancel"/>
+        </HBox>
+    </VBox>
+</ScrollPane>
