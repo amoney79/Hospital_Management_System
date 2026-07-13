@@ -1,0 +1,75 @@
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hms.controllers.AppointmentDetailController"
+            fitToWidth="true">
+    <VBox spacing="20" alignment="TOP_CENTER" padding="20">
+        <Label text="Appointment Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
+
+        <!-- Patient Information -->
+        <TitledPane text="Patient Information" expanded="true">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="patientNameField" promptText="Patient Name"/>
+                <TextField fx:id="patientIdField" promptText="Patient ID (Medical Record Number)"/>
+                <TextField fx:id="dobField" promptText="Date of Birth"/>
+                <TextArea fx:id="patientContactField" promptText="Contact Details (Phone, Email, Address)"/>
+                <TextArea fx:id="insuranceInfoField" promptText="Insurance Information (Provider, Policy Number)"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Appointment Basics -->
+        <TitledPane text="Appointment Basics" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="appointmentIdField" promptText="Appointment ID"/>
+                <DatePicker fx:id="appointmentDatePicker" promptText="Appointment Date"/>
+                <TextField fx:id="appointmentStartTimeField" promptText="Start Time"/>
+                <TextField fx:id="appointmentEndTimeField" promptText="End Time"/>
+                <TextField fx:id="appointmentTypeField" promptText="Appointment Type (Consultation, Surgery, etc.)"/>
+                <TextField fx:id="statusField" promptText="Status (Scheduled, Confirmed, etc.)"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Provider Information -->
+        <TitledPane text="Provider Information" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="doctorNameField" promptText="Doctor Name"/>
+                <TextField fx:id="doctorIdField" promptText="Doctor ID"/>
+                <TextField fx:id="specializationField" promptText="Specialization"/>
+                <TextField fx:id="departmentField" promptText="Department"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Location Details -->
+        <TitledPane text="Location Details" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="facilityNameField" promptText="Facility Name"/>
+                <TextField fx:id="roomNumberField" promptText="Room Number / Ward"/>
+                <TextArea fx:id="locationAddressField" promptText="Location Address"/>
+                <TextField fx:id="virtualMeetingLinkField" promptText="Virtual Meeting Link (Telehealth)"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Administrative & Support -->
+        <TitledPane text="Administrative & Support" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="reasonForVisitField" promptText="Reason for Visit"/>
+                <TextField fx:id="referralSourceField" promptText="Referral Source"/>
+                <TextArea fx:id="notesField" promptText="Notes (Special Instructions, Preferences)"/>
+                <TextArea fx:id="attachmentsField" promptText="Attachments (Lab Results, Imaging, Prescriptions)"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Notifications & Tracking -->
+        <TitledPane text="Notifications & Tracking" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="reminderSentField" promptText="Reminder Sent (Yes/No, Time Sent)"/>
+                <TextField fx:id="checkInTimeField" promptText="Check-in Time"/>
+                <TextField fx:id="followUpRequiredField" promptText="Follow-up Required"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Action Buttons -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Save" onAction="#handleSave"/>
+            <Button text="Cancel" onAction="#handleCancel"/>
+        </HBox>
+    </VBox>
+</ScrollPane>
