@@ -87,7 +87,7 @@ public class PatientDetailsController {
     @FXML
     private void handleBack() {
         if (mainController != null) {
-            mainController.loadView("PatientDetailsView");
+            mainController.loadView("Patients");
         }
     }
 }

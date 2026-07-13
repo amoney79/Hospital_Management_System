@@ -10,6 +10,19 @@ import javafx.scene.control.TextArea;
  */
 public class GeneralStaffDetailController {
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
+    @FXML
+    private void handleBack() {
+        if (mainController != null) {
+            mainController.loadView("MedicalRecords");
+        }
+    }
+
     // Personal Information
     @FXML private TextField nameField;
     @FXML private TextField idNumberField;

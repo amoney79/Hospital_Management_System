@@ -11,6 +11,26 @@ import javafx.scene.control.TextArea;
  */
 public class DoctorsDetailController {
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
+    @FXML
+    private void handleBack() {
+        if (mainController != null) {
+            mainController.loadView("Doctors");
+        }
+    }
+
+    /** Pre-fill fields from the clicked doctor card */
+    public void populateDoctor(String name, String specialty, String dept, String exp, String email, String avail) {
+        if (medicalDegreeField != null) medicalDegreeField.setPromptText("Medical Degree / Transcripts — " + name);
+        if (contactDetailsField != null) contactDetailsField.setText(email);
+        if (availabilityField   != null) availabilityField.setText(avail);
+    }
+
     // Professional & Educational Background
     @FXML
     private TextField medicalDegreeField;

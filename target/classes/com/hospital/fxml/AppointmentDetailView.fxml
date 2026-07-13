@@ -1,8 +1,12 @@
 <ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.hms.controllers.AppointmentDetailController"
+            fx:controller="com.hospital.controllers.AppointmentDetailController"
             fitToWidth="true">
     <VBox spacing="20" alignment="TOP_CENTER" padding="20">
         <Label text="Appointment Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
+
+        <HBox spacing="12">
+            <Button text="← Back to Appointments" onAction="#handleBack"/>
+        </HBox>
 
         <!-- Patient Information -->
         <TitledPane text="Patient Information" expanded="true">

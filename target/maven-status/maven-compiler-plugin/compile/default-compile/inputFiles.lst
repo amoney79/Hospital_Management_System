@@ -3,6 +3,8 @@ C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\Inve
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\MaintenanceController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\AppointmentsController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\PatientsController.java
+C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\AppointmentDetailController.java
+C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\DoctorsDetailController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\OrderItem.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\MainController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\MainApp.java
@@ -14,11 +16,13 @@ C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\Inve
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\Settings.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\DirectoryItem.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\DoctorsController.java
+C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\MedicalRecordDetailController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\DirectoryController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\ActivityItem.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\InventoryModuleController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\inventory\ServiceLog.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\PatientDetailsController.java
+C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\GeneralStaffDetailController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\MedicalRecordsController.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\models\Patient.java
 C:\Users\hp\Hospital_Management_System\src\main\java\com\hospital\controllers\TransactionsController.java

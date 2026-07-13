@@ -90,12 +90,26 @@ public class MainController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/hospital/fxml/" + viewName + ".fxml"));
             Parent view = loader.load();
+
+            // Inject this MainController into any sub-controller that supports it
+            Object controller = loader.getController();
+            if (controller != null) {
+                try {
+                    controller.getClass()
+                        .getMethod("setMainController", MainController.class)
+                        .invoke(controller, this);
+                } catch (NoSuchMethodException ignored) {
+                    // Controller doesn't need a MainController reference — that's fine
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
             contentArea.getChildren().clear();
             contentArea.getChildren().add(view);
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Could not load view: " + viewName);
-            // Optionally, load a generic placeholder if view doesn't exist yet
             Label placeholder = new Label(viewName + " View (Not yet implemented)");
             placeholder.setStyle("-fx-font-size: 24; -fx-text-fill: #666;");
             contentArea.getChildren().clear();

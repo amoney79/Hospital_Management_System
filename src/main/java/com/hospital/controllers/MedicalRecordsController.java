@@ -1,25 +1,34 @@
 package com.hospital.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
+import java.io.IOException;
 
 public class MedicalRecordsController {
 
     @FXML private VBox recordsContainer;
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
     @FXML
     public void initialize() {
-        addRecord("Sarah Johnson", "Dr. Wilson", "2026-03-15", "Routine Checkup. Patient is healthy.", "Vitamin D Supplements", "Annual Checkup");
-        addRecord("Michael Chen", "Dr. Davis", "2026-03-10", "Mild hypertension", "Lisinopril 10mg", "Blood pressure monitoring");
+        addRecord("Sarah Johnson", "Dr. Wilson", "2026-03-15", "Routine Checkup. Patient is healthy.",  "Vitamin D Supplements", "Annual Checkup");
+        addRecord("Michael Chen",  "Dr. Davis",  "2026-03-10", "Mild hypertension",                    "Lisinopril 10mg",       "Blood pressure monitoring");
     }
 
     private void addRecord(String pName, String dName, String date, String diag, String presc, String notes) {
         VBox card = new VBox();
         card.getStyleClass().add("card");
-        
+
         VBox content = new VBox(12);
         content.getStyleClass().add("card-content");
 
@@ -35,14 +44,36 @@ public class MedicalRecordsController {
 
         HBox details = new HBox(20);
         details.getChildren().addAll(
-            createSection("Diagnosis", diag),
+            createSection("Diagnosis",    diag),
             createSection("Prescription", presc),
-            createSection("Notes", notes)
+            createSection("Notes",        notes)
         );
 
         content.getChildren().addAll(header, details);
         card.getChildren().add(content);
+
+        // Wire card click → open MedicalRecordsView (detail) in main layout
+        card.setOnMouseClicked(event -> openRecordDetail(pName, dName, date, diag, presc, notes));
+        card.setStyle("-fx-cursor: hand;");
+
         recordsContainer.getChildren().add(card);
+    }
+
+    private void openRecordDetail(String pName, String dName, String date, String diag, String presc, String notes) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/hospital/fxml/MedicalRecordsView.fxml"));
+            Parent view = loader.load();
+
+            MedicalRecordDetailController controller = loader.getController();
+            controller.setMainController(mainController);
+            controller.populateRecord(pName, dName, date, diag, presc, notes);
+
+            if (mainController != null) {
+                mainController.setContent(view);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private VBox createSection(String title, String data) {

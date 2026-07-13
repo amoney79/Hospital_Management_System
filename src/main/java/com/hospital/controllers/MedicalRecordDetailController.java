@@ -10,6 +10,28 @@ import javafx.scene.control.TextArea;
  */
 public class MedicalRecordDetailController {
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
+    @FXML
+    private void handleBack() {
+        if (mainController != null) {
+            mainController.loadView("MedicalRecords");
+        }
+    }
+
+    /** Pre-fill key fields from the clicked record card */
+    public void populateRecord(String pName, String dName, String date, String diag, String presc, String notes) {
+        if (patientIdentificationField != null) patientIdentificationField.setText(pName);
+        if (visitDateField             != null) visitDateField.setText(date);
+        if (diagnosesField             != null) diagnosesField.setText(diag);
+        if (prescriptionsField         != null) prescriptionsField.setText(presc);
+        if (progressNotesField         != null) progressNotesField.setText(notes);
+    }
+
     // Inpatient Records
     @FXML private TextArea admissionDetailsField;
     @FXML private TextArea patientDemographicsField;

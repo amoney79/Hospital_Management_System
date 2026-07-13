@@ -1,26 +1,35 @@
 package com.hospital.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.FlowPane;
+import java.io.IOException;
 
 public class DoctorsController {
 
     @FXML private FlowPane doctorsGrid;
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
     @FXML
     public void initialize() {
-        addDocCard("Dr. Sarah Wilson", "Cardiology", "Cardiology Dept", "15", "sarah.wilson@hospital.com", "Mon-Fri, 9AM-5PM");
-        addDocCard("Dr. Michael Davis", "Pediatrics", "Pediatrics Dept", "10", "m.davis@hospital.com", "Mon-Thu, 8AM-4PM");
-        addDocCard("Dr. Emily Smith", "Neurology", "Neurology Dept", "12", "e.smith@hospital.com", "Tue-Sat, 10AM-6PM");
+        addDocCard("Dr. Sarah Wilson",  "Cardiology",  "Cardiology Dept",  "15", "sarah.wilson@hospital.com", "Mon-Fri, 9AM-5PM");
+        addDocCard("Dr. Michael Davis", "Pediatrics",  "Pediatrics Dept",  "10", "m.davis@hospital.com",      "Mon-Thu, 8AM-4PM");
+        addDocCard("Dr. Emily Smith",   "Neurology",   "Neurology Dept",   "12", "e.smith@hospital.com",      "Tue-Sat, 10AM-6PM");
     }
 
     private void addDocCard(String name, String specialty, String dept, String exp, String email, String avail) {
         VBox card = new VBox();
         card.getStyleClass().add("card");
         card.setPrefWidth(300);
-        
+
         VBox content = new VBox(12);
         content.getStyleClass().add("card-content");
 
@@ -28,7 +37,7 @@ public class DoctorsController {
         nameL.setStyle("-fx-font-size: 16; -fx-font-weight: bold;");
         Label specL = new Label(specialty);
         specL.setStyle("-fx-text-fill: #4b5563; -fx-font-size: 14;");
-        
+
         Label available = new Label("AVAILABLE");
         available.getStyleClass().addAll("badge", "badge-completed");
 
@@ -42,7 +51,29 @@ public class DoctorsController {
 
         content.getChildren().addAll(nameL, specL, available, details);
         card.getChildren().add(content);
+
+        // Wire card click → open DoctorsDetailView in main layout
+        card.setOnMouseClicked(event -> openDoctorDetail(name, specialty, dept, exp, email, avail));
+        card.setStyle("-fx-cursor: hand;");
+
         doctorsGrid.getChildren().add(card);
+    }
+
+    private void openDoctorDetail(String name, String specialty, String dept, String exp, String email, String avail) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/hospital/fxml/DoctorsDetailView.fxml"));
+            Parent view = loader.load();
+
+            DoctorsDetailController controller = loader.getController();
+            controller.setMainController(mainController);
+            controller.populateDoctor(name, specialty, dept, exp, email, avail);
+
+            if (mainController != null) {
+                mainController.setContent(view);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -68,13 +99,14 @@ public class DoctorsController {
         grid.add(new Label("Specialty:"), 0, 1); grid.add(specInput, 1, 1);
 
         dialogPane.setContent(grid);
-        dialogPane.lookupButton(javafx.scene.control.ButtonType.OK).setStyle("-fx-background-color: #111827; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 16; -fx-background-radius: 6;");
+        dialogPane.lookupButton(javafx.scene.control.ButtonType.OK).setStyle(
+            "-fx-background-color: #111827; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 16; -fx-background-radius: 6;");
 
         dialog.showAndWait().ifPresent(response -> {
             if (response == javafx.scene.control.ButtonType.OK) {
                 addDocCard(
                     nameInput.getText().isEmpty() ? "New Doctor" : nameInput.getText(),
-                    specInput.getText().isEmpty() ? "General" : specInput.getText(),
+                    specInput.getText().isEmpty() ? "General"    : specInput.getText(),
                     "TBD Dept", "0", "N/A", "Mon-Fri"
                 );
             }

@@ -5,17 +5,20 @@ com\hospital\controllers\MainController.class
 com\hospital\inventory\InventoryDashboardController$3.class
 com\hospital\controllers\TransactionsController$Trans.class
 com\hospital\inventory\DirectoryController.class
+com\hospital\controllers\MedicalRecordDetailController.class
 com\hospital\inventory\DirectoryController$2.class
 com\hospital\inventory\OrdersController$4.class
 com\hospital\controllers\Settings.class
 com\hospital\models\Patient.class
 com\hospital\inventory\DirectoryController$5.class
 com\hospital\inventory\OrdersController.class
+com\hospital\controllers\DoctorsDetailController.class
 com\hospital\MainApp.class
 com\hospital\controllers\PatientDetailsController.class
 com\hospital\inventory\ActivityItem.class
 com\hospital\inventory\OrdersController$3.class
 com\hospital\inventory\DirectoryController$1.class
+com\hospital\controllers\GeneralStaffDetailController.class
 com\hospital\controllers\PatientsController.class
 com\hospital\inventory\MaintenanceController$1.class
 com\hospital\inventory\DirectoryController$4.class
@@ -39,4 +42,5 @@ com\hospital\controllers\MedicalRecordsController.class
 com\hospital\inventory\DirectoryItem.class
 com\hospital\models\Patient$PatientType.class
 com\hospital\controllers\AppointmentsController.class
+com\hospital\controllers\AppointmentDetailController.class
 com\hospital\inventory\InventorySettingsController.class

@@ -1,8 +1,12 @@
 <ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.hms.controllers.GeneralStaffDetailController"
+            fx:controller="com.hospital.controllers.GeneralStaffDetailController"
             fitToWidth="true">
     <VBox spacing="20" alignment="TOP_CENTER" padding="20">
         <Label text="Staff Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
+
+        <HBox spacing="12">
+            <Button text="← Back to Records" onAction="#handleBack"/>
+        </HBox>
 
         <!-- Personal Information -->
         <TitledPane text="Personal Information" expanded="true">

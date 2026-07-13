@@ -12,6 +12,28 @@ import javafx.scene.control.DatePicker;
  */
 public class AppointmentDetailController {
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
+    @FXML
+    private void handleBack() {
+        if (mainController != null) {
+            mainController.loadView("Appointments");
+        }
+    }
+
+    /** Pre-fill fields from the clicked appointment card */
+    public void populateAppointment(String patient, String doctor, String date, String time, String type, String status) {
+        if (patientNameField        != null) patientNameField.setText(patient);
+        if (doctorNameField         != null) doctorNameField.setText(doctor);
+        if (appointmentStartTimeField != null) appointmentStartTimeField.setText(time);
+        if (appointmentTypeField    != null) appointmentTypeField.setText(type);
+        if (statusField             != null) statusField.setText(status);
+    }
+
     // Patient Information
     @FXML private TextField patientNameField;
     @FXML private TextField patientIdField;

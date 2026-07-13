@@ -1,10 +1,13 @@
 <ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.hms.controllers.DoctorsDetailController"
+            fx:controller="com.hospital.controllers.DoctorsDetailController"
             fitToWidth="true">
     <VBox spacing="20" alignment="TOP_CENTER" padding="20">
         <Label text="Doctor Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
 
-        <!-- Professional & Educational Background -->
+        <HBox spacing="12">
+            <Button text="← Back to Doctors" onAction="#handleBack"/>
+        </HBox>
+
         <TitledPane text="Professional and Educational Background" expanded="true">
             <VBox spacing="10" padding="10">
                 <TextField fx:id="medicalDegreeField" promptText="Medical Degree / Transcripts"/>
