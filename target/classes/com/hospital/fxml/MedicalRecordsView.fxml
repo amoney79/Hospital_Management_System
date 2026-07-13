@@ -1,0 +1,66 @@
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hms.controllers.MedicalRecordDetailController"
+            fitToWidth="true">
+    <VBox spacing="20" alignment="TOP_CENTER" padding="20">
+        <Label text="Medical Record Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
+
+        <!-- Inpatient Records -->
+        <TitledPane text="Inpatient Records" expanded="true">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="admissionDetailsField" promptText="Admission Details"/>
+                <TextArea fx:id="patientDemographicsField" promptText="Patient Demographics"/>
+                <TextArea fx:id="vitalSignsLogsField" promptText="Vital Signs Logs"/>
+                <TextArea fx:id="diagnosesField" promptText="Diagnoses"/>
+                <TextArea fx:id="treatmentPlanField" promptText="Treatment Plan"/>
+                <TextArea fx:id="progressNotesField" promptText="Progress Notes"/>
+                <TextArea fx:id="labResultsField" promptText="Lab Results"/>
+                <TextArea fx:id="surgicalRecordsField" promptText="Surgical Records"/>
+                <TextArea fx:id="consultationsField" promptText="Consultations"/>
+                <TextArea fx:id="dischargeSummaryField" promptText="Discharge Summary"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Outpatient Records -->
+        <TitledPane text="Outpatient Records" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="visitDateField" promptText="Visit Date"/>
+                <TextArea fx:id="chiefComplaintField" promptText="Chief Complaint"/>
+                <TextArea fx:id="medicalHistoryField" promptText="Medical History"/>
+                <TextArea fx:id="physicalExamNotesField" promptText="Physical Examination Notes"/>
+                <TextArea fx:id="diagnosticTestsField" promptText="Diagnostic Tests"/>
+                <TextArea fx:id="prescriptionsField" promptText="Prescriptions"/>
+                <TextArea fx:id="followUpPlanField" promptText="Follow-up Plan"/>
+                <TextArea fx:id="billingInfoField" promptText="Billing Information"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Maternity Records -->
+        <TitledPane text="Maternity Records" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextArea fx:id="antenatalVisitsField" promptText="Antenatal Visits"/>
+                <TextArea fx:id="obstetricHistoryField" promptText="Obstetric History"/>
+                <TextArea fx:id="laborDeliveryNotesField" promptText="Labor and Delivery Notes"/>
+                <TextArea fx:id="newbornRecordsField" promptText="Newborn Records"/>
+                <TextArea fx:id="postnatalCareField" promptText="Postnatal Care"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Common Across All Categories -->
+        <TitledPane text="Common Across All Categories" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="patientIdentificationField" promptText="Patient Identification"/>
+                <TextArea fx:id="consentFormsField" promptText="Consent Forms"/>
+                <TextArea fx:id="immunizationHistoryField" promptText="Immunization History"/>
+                <TextArea fx:id="allergiesField" promptText="Allergies"/>
+                <TextArea fx:id="familyHistoryField" promptText="Family History"/>
+                <TextArea fx:id="socialHistoryField" promptText="Social History"/>
+            </VBox>
+        </TitledPane>
+
+        <!-- Action Buttons -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Save" onAction="#handleSave"/>
+            <Button text="Cancel" onAction="#handleCancel"/>
+        </HBox>
+    </VBox>
+</ScrollPane>
