@@ -17,10 +17,6 @@
     <VBox spacing="20" alignment="TOP_CENTER" padding="20">
         <Label text="Appointment Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
 
-        <HBox spacing="12">
-            <Button text="← Back to Appointments" onAction="#handleBack"/>
-        </HBox>
-
         <!-- Patient Information -->
         <TitledPane text="Patient Information" expanded="true">
             <VBox spacing="10" padding="10">

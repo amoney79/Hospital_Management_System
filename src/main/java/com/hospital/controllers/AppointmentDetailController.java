@@ -79,9 +79,6 @@ public class AppointmentDetailController {
     @FXML private TextField checkInTimeField;
     @FXML private TextField followUpRequiredField;
 
-    /**
-     * Handle Save button click
-     */
     @FXML
     private void handleSave() {
         System.out.println("Appointment Details Saved:");
@@ -117,6 +114,7 @@ public class AppointmentDetailController {
         System.out.println("Check-in Time: " + checkInTimeField.getText());
         System.out.println("Follow-up Required: " + followUpRequiredField.getText());
 
+        handleBack();
     }
 
     /**
@@ -158,5 +156,6 @@ public class AppointmentDetailController {
         followUpRequiredField.clear();
 
         System.out.println("Appointment Details form cleared.");
+        handleBack();
     }
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 
-<ScrollPane xmlns:http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+<ScrollPane xmlns:http="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
     fx:controller="com.hospital.controllers.GeneralStaffDetailController"
     fitToWidth="true">
     <VBox spacing="20" alignment="TOP_CENTER" padding="20">
