@@ -16,18 +16,17 @@
     <VBox spacing="20" alignment="TOP_CENTER" padding="20">
         <Label text="Medical Record Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
 
-        <HBox spacing="12" alignment="CENTER_LEFT">
-            <Button text="← Back to Records" onAction="#handleBack"/>
-        </HBox>
-
-        <!-- Record Header Info Card -->
-        <VBox spacing="8" alignment="CENTER" styleClass="card" style="-fx-padding: 20; -fx-background-color: #f3f4f6;">
-            <Label fx:id="patientNameLabel" text="Patient Name" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #111827;"/>
-            <Label fx:id="attendingDoctorLabel" text="Attending Doctor: - | Date: -" style="-fx-font-size: 16; -fx-text-fill: #4b5563;"/>
-        </VBox>
+        <!-- Visit & Patient Information -->
+        <TitledPane text="Visit &amp; Patient Information" expanded="true">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="patientIdentificationField" promptText="Patient Identification (Name)" />
+                <TextField fx:id="attendingDoctorField" promptText="Attending Doctor" />
+                <TextField fx:id="visitDateField" promptText="Visit Date (yyyy-mm-dd)" />
+            </VBox>
+        </TitledPane>
 
         <!-- Inpatient Records -->
-        <TitledPane text="Inpatient Records" expanded="true">
+        <TitledPane text="Inpatient Records" expanded="false">
             <VBox spacing="10" padding="10">
                 <TextArea fx:id="admissionDetailsField" promptText="Admission Details"/>
                 <TextArea fx:id="patientDemographicsField" promptText="Patient Demographics"/>
@@ -45,7 +44,6 @@
         <!-- Outpatient Records -->
         <TitledPane text="Outpatient Records" expanded="false">
             <VBox spacing="10" padding="10">
-                <TextField fx:id="visitDateField" promptText="Visit Date"/>
                 <TextArea fx:id="chiefComplaintField" promptText="Chief Complaint"/>
                 <TextArea fx:id="medicalHistoryField" promptText="Medical History"/>
                 <TextArea fx:id="physicalExamNotesField" promptText="Physical Examination Notes"/>
@@ -70,7 +68,6 @@
         <!-- Common Across All Categories -->
         <TitledPane text="Common Across All Categories" expanded="false">
             <VBox spacing="10" padding="10">
-                <TextField fx:id="patientIdentificationField" promptText="Patient Identification"/>
                 <TextArea fx:id="consentFormsField" promptText="Consent Forms"/>
                 <TextArea fx:id="immunizationHistoryField" promptText="Immunization History"/>
                 <TextArea fx:id="allergiesField" promptText="Allergies"/>
