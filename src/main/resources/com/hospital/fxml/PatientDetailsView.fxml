@@ -1,83 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.Button?>
 
+<ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hospital.controllers.PatientDetailsController"
+            fitToWidth="true">
+    <VBox spacing="20" alignment="TOP_CENTER" padding="20">
+        <Label text="Patient Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
 
-<VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="com.hospital.controllers.PatientDetailsController"
-    spacing="24" style="-fx-padding: 24;">
+        <!-- Personal Information -->
+        <TitledPane text="Personal Information" expanded="true">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="nameField" promptText="Full Name" />
+                <TextField fx:id="ageField" promptText="Age" />
+                <TextField fx:id="genderField" promptText="Gender" />
+                <TextField fx:id="phoneField" promptText="Phone Number" />
+                <TextField fx:id="emailField" promptText="Email Address" />
+                <TextField fx:id="bloodTypeField" promptText="Blood Type" />
+                <TextField fx:id="statusField" promptText="Status" />
+                <TextField fx:id="typeField" promptText="Patient Type (INPATIENT, OUTPATIENT, MATERNITY)" />
+            </VBox>
+        </TitledPane>
 
-    <Label text="Patient Details" styleClass="page-title" />
+        <!-- Inpatient Information -->
+        <TitledPane fx:id="inpatientPane" text="Inpatient Information" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="wardField" promptText="Ward" />
+                <TextField fx:id="bedField" promptText="Bed Number" />
+                <TextField fx:id="admissionDateField" promptText="Admission Date (yyyy-mm-dd)" />
+                <TextField fx:id="doctorField" promptText="Doctor Assigned" />
+            </VBox>
+        </TitledPane>
 
-    <HBox spacing="12">
-    <Button text="← Back to Patients" onAction="#handleBack"/>
-</HBox>
+        <!-- Outpatient Information -->
+        <TitledPane fx:id="outpatientPane" text="Outpatient Information" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="visitDateField" promptText="Visit Date (yyyy-mm-dd)" />
+                <TextField fx:id="consultationTypeField" promptText="Consultation Type" />
+                <TextField fx:id="outDoctorField" promptText="Doctor Assigned" />
+                <TextField fx:id="nextAppointmentField" promptText="Next Appointment Date (yyyy-mm-dd)" />
+            </VBox>
+        </TitledPane>
 
+        <!-- Maternity Information -->
+        <TitledPane fx:id="maternityPane" text="Maternity Information" expanded="false">
+            <VBox spacing="10" padding="10">
+                <TextField fx:id="deliveryDateField" promptText="Expected Delivery Date (yyyy-mm-dd)" />
+                <TextField fx:id="obstetricianField" promptText="Obstetrician" />
+                <TextField fx:id="pregnancyStageField" promptText="Pregnancy Stage" />
+                <TextArea fx:id="notesArea" promptText="Maternity Notes" prefRowCount="4" />
+            </VBox>
+        </TitledPane>
 
-    <!-- Inpatient Section -->
-    <VBox fx:id="inpatientSection" spacing="12" visible="false" managed="false">
-        <Label text="Inpatient Information" styleClass="section-title" />
-        <HBox spacing="12">
-            <Label text="Ward:" />
-            <Label fx:id="wardLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Bed Number:" />
-            <Label fx:id="bedLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Admission Date:" />
-            <Label fx:id="admissionDateLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Doctor Assigned:" />
-            <Label fx:id="doctorLabel" />
+        <!-- Action Buttons -->
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Save" onAction="#handleSave" />
+            <Button text="Cancel" onAction="#handleCancel" />
         </HBox>
     </VBox>
-
-    <!-- Outpatient Section -->
-    <VBox fx:id="outpatientSection" spacing="12" visible="false" managed="false">
-        <Label text="Outpatient Information" styleClass="section-title" />
-        <HBox spacing="12">
-            <Label text="Visit Date:" />
-            <Label fx:id="visitDateLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Consultation Type:" />
-            <Label fx:id="consultationTypeLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Doctor Assigned:" />
-            <Label fx:id="outDoctorLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Next Appointment:" />
-            <Label fx:id="nextAppointmentLabel" />
-        </HBox>
-    </VBox>
-
-    <!-- Maternity Section -->
-    <VBox fx:id="maternitySection" spacing="12" visible="false" managed="false">
-        <Label text="Maternity Information" styleClass="section-title" />
-        <HBox spacing="12">
-            <Label text="Expected Delivery Date:" />
-            <Label fx:id="deliveryDateLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Obstetrician:" />
-            <Label fx:id="obstetricianLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Pregnancy Stage:" />
-            <Label fx:id="pregnancyStageLabel" />
-        </HBox>
-        <HBox spacing="12">
-            <Label text="Notes:" />
-            <TextArea fx:id="notesArea" prefRowCount="4" />
-        </HBox>
-    </VBox>
-</VBox>
+</ScrollPane>
