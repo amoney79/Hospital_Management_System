@@ -30,6 +30,12 @@ public class DashboardController {
         loadRecentTransactions();
     }
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
     private void loadRecentAppointments() {
         // Mock list of up to 3 appointments
         addAppointmentItem("Sarah Johnson", "Dr. Wilson", "09:00 AM", "scheduled", "badge-scheduled");
@@ -61,7 +67,29 @@ public class DashboardController {
         rightInfo.getChildren().addAll(timeL, statusL);
 
         item.getChildren().addAll(leftInfo, spacer, rightInfo);
+
+        // Wire click handler to open details
+        item.setOnMouseClicked(event -> openAppointmentDetail(patient, doctor, "2026-04-02", time, "Consultation", status));
+        item.setStyle("-fx-cursor: hand;");
+
         recentAppointmentsContainer.getChildren().add(item);
+    }
+
+    private void openAppointmentDetail(String patient, String doctor, String date, String time, String type, String status) {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/hospital/fxml/AppointmentDetailView.fxml"));
+            javafx.scene.Parent view = loader.load();
+
+            AppointmentDetailController controller = loader.getController();
+            controller.setMainController(mainController);
+            controller.populateAppointment(patient, doctor, date, time, type, status);
+
+            if (mainController != null) {
+                mainController.setContent(view);
+            }
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void loadRecentTransactions() {

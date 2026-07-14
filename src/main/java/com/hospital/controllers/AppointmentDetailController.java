@@ -32,6 +32,13 @@ public class AppointmentDetailController {
         if (appointmentStartTimeField != null) appointmentStartTimeField.setText(time);
         if (appointmentTypeField    != null) appointmentTypeField.setText(type);
         if (statusField             != null) statusField.setText(status);
+        if (appointmentDatePicker   != null && date != null) {
+            try {
+                appointmentDatePicker.setValue(java.time.LocalDate.parse(date));
+            } catch (Exception e) {
+                // Keep it empty or ignore if date format doesn't match
+            }
+        }
     }
 
     // Patient Information

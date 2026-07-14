@@ -16,9 +16,16 @@
     <VBox spacing="20" alignment="TOP_CENTER" padding="20">
         <Label text="Doctor Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
 
-        <HBox spacing="12">
+        <HBox spacing="12" alignment="CENTER_LEFT">
             <Button text="← Back to Doctors" onAction="#handleBack"/>
         </HBox>
+
+        <!-- Doctor Header Info Card -->
+        <VBox spacing="8" alignment="CENTER" styleClass="card" style="-fx-padding: 20; -fx-background-color: #f3f4f6;">
+            <Label fx:id="doctorNameLabel" text="Doctor Name" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #111827;"/>
+            <Label fx:id="doctorSpecialtyLabel" text="Specialty" style="-fx-font-size: 16; -fx-text-fill: #4b5563;"/>
+            <Label fx:id="doctorDetailsLabel" text="Experience: - | Dept: - | Email: -" style="-fx-font-size: 14; -fx-text-fill: #6b7280;"/>
+        </VBox>
 
         <TitledPane text="Professional and Educational Background" expanded="true">
             <VBox spacing="10" padding="10">

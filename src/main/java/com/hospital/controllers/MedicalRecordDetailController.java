@@ -5,12 +5,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 
+import javafx.scene.control.Label;
+
 /**
  * Controller for MedicalRecordDetailView.fxml
  */
 public class MedicalRecordDetailController {
 
     private MainController mainController;
+
+    @FXML private Label patientNameLabel;
+    @FXML private Label attendingDoctorLabel;
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
@@ -25,6 +30,8 @@ public class MedicalRecordDetailController {
 
     /** Pre-fill key fields from the clicked record card */
     public void populateRecord(String pName, String dName, String date, String diag, String presc, String notes) {
+        if (patientNameLabel != null) patientNameLabel.setText(pName);
+        if (attendingDoctorLabel != null) attendingDoctorLabel.setText("Attending Doctor: " + dName + " | Date: " + date);
         if (patientIdentificationField != null) patientIdentificationField.setText(pName);
         if (visitDateField             != null) visitDateField.setText(date);
         if (diagnosesField             != null) diagnosesField.setText(diag);

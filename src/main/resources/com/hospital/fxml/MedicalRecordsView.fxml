@@ -16,9 +16,15 @@
     <VBox spacing="20" alignment="TOP_CENTER" padding="20">
         <Label text="Medical Record Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
 
-        <HBox spacing="12">
+        <HBox spacing="12" alignment="CENTER_LEFT">
             <Button text="← Back to Records" onAction="#handleBack"/>
         </HBox>
+
+        <!-- Record Header Info Card -->
+        <VBox spacing="8" alignment="CENTER" styleClass="card" style="-fx-padding: 20; -fx-background-color: #f3f4f6;">
+            <Label fx:id="patientNameLabel" text="Patient Name" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #111827;"/>
+            <Label fx:id="attendingDoctorLabel" text="Attending Doctor: - | Date: -" style="-fx-font-size: 16; -fx-text-fill: #4b5563;"/>
+        </VBox>
 
         <!-- Inpatient Records -->
         <TitledPane text="Inpatient Records" expanded="true">

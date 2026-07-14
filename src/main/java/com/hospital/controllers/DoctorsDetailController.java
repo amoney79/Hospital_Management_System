@@ -6,12 +6,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 
 
+import javafx.scene.control.Label;
+
 /**
  * Controller for DoctorsDetailView.fxml
  */
 public class DoctorsDetailController {
 
     private MainController mainController;
+
+    @FXML private Label doctorNameLabel;
+    @FXML private Label doctorSpecialtyLabel;
+    @FXML private Label doctorDetailsLabel;
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
@@ -26,6 +32,11 @@ public class DoctorsDetailController {
 
     /** Pre-fill fields from the clicked doctor card */
     public void populateDoctor(String name, String specialty, String dept, String exp, String email, String avail) {
+        if (doctorNameLabel != null) doctorNameLabel.setText(name);
+        if (doctorSpecialtyLabel != null) doctorSpecialtyLabel.setText(specialty);
+        if (doctorDetailsLabel != null) {
+            doctorDetailsLabel.setText("Experience: " + exp + " years | Dept: " + dept + " | Email: " + email);
+        }
         if (medicalDegreeField != null) medicalDegreeField.setPromptText("Medical Degree / Transcripts — " + name);
         if (contactDetailsField != null) contactDetailsField.setText(email);
         if (availabilityField   != null) availabilityField.setText(avail);
