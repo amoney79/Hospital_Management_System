@@ -12,12 +12,12 @@
 <ScrollPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.hospital.controllers.PatientDetailsController"
             fitToWidth="true">
-    <VBox spacing="20" alignment="TOP_CENTER" padding="20">
+    <VBox spacing="20" alignment="TOP_CENTER" style="-fx-padding: 20;">
         <Label text="Patient Details" style="-fx-font-size:20; -fx-font-weight:bold;" />
 
         <!-- Personal Information -->
         <TitledPane text="Personal Information" expanded="true">
-            <VBox spacing="10" padding="10">
+            <VBox spacing="10" style="-fx-padding: 10;">
                 <TextField fx:id="nameField" promptText="Full Name" />
                 <TextField fx:id="ageField" promptText="Age" />
                 <TextField fx:id="genderField" promptText="Gender" />
@@ -31,7 +31,7 @@
 
         <!-- Inpatient Information -->
         <TitledPane fx:id="inpatientPane" text="Inpatient Information" expanded="false">
-            <VBox spacing="10" padding="10">
+            <VBox spacing="10" style="-fx-padding: 10;">
                 <TextField fx:id="wardField" promptText="Ward" />
                 <TextField fx:id="bedField" promptText="Bed Number" />
                 <TextField fx:id="admissionDateField" promptText="Admission Date (yyyy-mm-dd)" />
@@ -41,7 +41,7 @@
 
         <!-- Outpatient Information -->
         <TitledPane fx:id="outpatientPane" text="Outpatient Information" expanded="false">
-            <VBox spacing="10" padding="10">
+            <VBox spacing="10" style="-fx-padding: 10;">
                 <TextField fx:id="visitDateField" promptText="Visit Date (yyyy-mm-dd)" />
                 <TextField fx:id="consultationTypeField" promptText="Consultation Type" />
                 <TextField fx:id="outDoctorField" promptText="Doctor Assigned" />
@@ -51,7 +51,7 @@
 
         <!-- Maternity Information -->
         <TitledPane fx:id="maternityPane" text="Maternity Information" expanded="false">
-            <VBox spacing="10" padding="10">
+            <VBox spacing="10" style="-fx-padding: 10;">
                 <TextField fx:id="deliveryDateField" promptText="Expected Delivery Date (yyyy-mm-dd)" />
                 <TextField fx:id="obstetricianField" promptText="Obstetrician" />
                 <TextField fx:id="pregnancyStageField" promptText="Pregnancy Stage" />
